@@ -1,110 +1,133 @@
-    
-    img {
-        width: 100%;
-    }
+/* css gapo start */
 
     .body {
         background-color: #f0f2f5;
     }
 
-    .login-form {
-        padding: 10px;
-        border-radius: 10px;
+    button:focus {
+        outline: none;
     }
 
-    .btn-all {
-        font-size: large;
-        font-weight: bolder;
-        padding: 5px 16px;
+
+    .login-main {
+        padding: 0 2rem;   
     }
 
-    .inp-all {
-        background-color: #e8f0fe;
+    .logo-login img {
+        width: 34%;
     }
 
-    .btn-login {
-        background-color: #1877f2;
-    }
-
-    .btn-signup {
-        background-color: #42b72a;
-    }
-
-    .title-login {
-        color: #1877f2;
-        font-weight: bolder;
-    }
-
-    .intro-login {
-        font-size: 28px;
-        font-weight: normal;
-        line-height: 32px;
-    }
-
-    .author-name {
-        padding: 10px;
-        border-bottom-left-radius: 10px;
-        border-bottom-right-radius: 10px;
-    }
-
-    .accout-img {
-        border-radius: 10px;
-    }
-
-    .accout-img img,
-    .icon-1gax {
-        border-top-left-radius: 10px;
-        border-top-right-radius: 10px;
-    }
-
-    .accout-img img {
-        height: 170px;
-    }
-
-    .sp-plus {
-        background-position: 0 0;
-    }
-
-    .sp-plus {
-        background-image: url(../../assets/images/dau-cong.png);
-        background-size: auto;
-        background-repeat: no-repeat;
-        display: inline-block;
-        height: 42px;
-        width: 42px;
-    }
-
-    .icon-1gax {
-        align-items: center;
-        background-color: #f5f6f7;
+    .kpwvSR {
+        height: 100vh;
+        width: 100vw;
+        background: rgb(111, 190, 73);
         display: flex;
-        height: 170px;
+    }
+
+    .banner-right {
+        height: 100vh;
+        width: 65vw;
+        background: url(../../assets/images/right-cover.jpg) center 0% no-repeat rgb(121, 191, 67);
+        min-height: 800px;
+    }
+
+    
+    .login-form {
+        border-radius: 10px;
+    }
+
+    .login-intro {
+        color: rgb(26, 26, 26);
+        font-weight: bold;
+        font-size: 34px;
+        line-height: 41px;
+        margin-bottom: 40px;
+        margin-top: 100px;
+    }
+
+    .gPgfXu {
+        background: rgb(255, 255, 255);
+        border: 1px solid rgb(231, 231, 231);
+        box-sizing: border-box;
+        border-radius: 4px;
+        width: 100%;
+        height: 52px;
+        margin-bottom: 8px;
+        font-size: 18px;
+        outline: none;
+        -webkit-box-align: center;
+        align-items: center;
+    }
+
+    .input-phone-number {
+        padding-left: 20px;
+        position: relative;
+        z-index: 1;
+    }
+
+    .ihuaxi {
+        background: rgb(111, 190, 73);
+        border-radius: 4px;
+        color: rgb(255, 255, 255);
+        display: flex;
+        -webkit-box-pack: center;
         justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        width: 100%;
+        height: 52px;
+        left: calc(50% - 170px);
+        top: calc(50% - 24px + 28px);
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+        opacity: 0.5;
+    }
+
+    .ihuaxi-signup {
+        background: rgb(85, 73, 190);
+        border-radius: 4px;
+        color: rgb(255, 255, 255);
+        display: flex;
+        -webkit-box-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        align-items: center;
+        width: 100%;
+        height: 52px;
+        left: calc(50% - 170px);
+        top: calc(50% - 24px + 28px);
+        border: none;
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .ihfPQr {
+        height: 17px;
+        line-height: 17px;
+        margin-bottom: 64px;
+        -webkit-box-align: center;
+        align-items: center;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .login-intro-button {
+        justify-content: space-between;
+        display: flex;
         width: 100%;
     }
 
-    .icon-x {
-        top: 0;
-        left: 0;
+    .login-intro-button a {
+        font-size: 14px;
+        color: inherit;
+        font-weight: bold;
     }
 
-    .accout-img {
-        transition: all .2s ease-out;
-    }
-
-    .accout-img:hover {
-        box-shadow: 0 1px 8px 5px #dddfe2;
+    .login-intro-button a:hover {
         text-decoration: none;
     }
 
-    .fa-times-circle:before {
-        background-color: #fff;
-        color: #e0e0e0;
-        border-radius: 50%;
-    }
 
-    .accout-img:hover .fa-times-circle:before {
-        background-color: #e0e0e0;
-        color: #fff;
-        font-size: larger;
-    }
+/* css gapo end */

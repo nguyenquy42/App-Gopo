@@ -12,6 +12,6 @@ module.exports.login = async (req, res) => {
     if (user) {
         res.json({ status: 'success' })
     } else {
-        res.json({ status: 'error', message: 'Email or password incorrect' })
+        res.json({ status: 'error', message: 'Email or password không đúng' })
     }
 }
