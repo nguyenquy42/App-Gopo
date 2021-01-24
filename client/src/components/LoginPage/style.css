@@ -1,0 +1,110 @@
+    
+    img {
+        width: 100%;
+    }
+
+    .body {
+        background-color: #f0f2f5;
+    }
+
+    .login-form {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .btn-all {
+        font-size: large;
+        font-weight: bolder;
+        padding: 5px 16px;
+    }
+
+    .inp-all {
+        background-color: #e8f0fe;
+    }
+
+    .btn-login {
+        background-color: #1877f2;
+    }
+
+    .btn-signup {
+        background-color: #42b72a;
+    }
+
+    .title-login {
+        color: #1877f2;
+        font-weight: bolder;
+    }
+
+    .intro-login {
+        font-size: 28px;
+        font-weight: normal;
+        line-height: 32px;
+    }
+
+    .author-name {
+        padding: 10px;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .accout-img {
+        border-radius: 10px;
+    }
+
+    .accout-img img,
+    .icon-1gax {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .accout-img img {
+        height: 170px;
+    }
+
+    .sp-plus {
+        background-position: 0 0;
+    }
+
+    .sp-plus {
+        background-image: url(../../assets/images/dau-cong.png);
+        background-size: auto;
+        background-repeat: no-repeat;
+        display: inline-block;
+        height: 42px;
+        width: 42px;
+    }
+
+    .icon-1gax {
+        align-items: center;
+        background-color: #f5f6f7;
+        display: flex;
+        height: 170px;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .icon-x {
+        top: 0;
+        left: 0;
+    }
+
+    .accout-img {
+        transition: all .2s ease-out;
+    }
+
+    .accout-img:hover {
+        box-shadow: 0 1px 8px 5px #dddfe2;
+        text-decoration: none;
+    }
+
+    .fa-times-circle:before {
+        background-color: #fff;
+        color: #e0e0e0;
+        border-radius: 50%;
+    }
+
+    .accout-img:hover .fa-times-circle:before {
+        background-color: #e0e0e0;
+        color: #fff;
+        font-size: larger;
+    }

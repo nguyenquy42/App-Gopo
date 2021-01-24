@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="body">
+    <div class="container-fluid">
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-4">
+                <div class="signup-form bg-white">
+
+                    <div class="row">
+                        <div class="form-group col col-dv-left">
+                            <input type="text" class="form-control inp-all mb-3" placeholder="Họ" id="surname">
+                        </div>
+                        <div class="form-group col col-dv-right">
+                            <input type="text" class="form-control inp-all mb-3" placeholder="Tên" id="name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control inp-all mb-3" placeholder="Email" id="email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control inp-all mb-3" placeholder="Mật khẩu" id="password">
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-3 col-dv-left">
+                            <p>Ngày sinh</p>
+                        </div>
+                        <div class="form-group col-lg-9 col-dv-right">
+                            <input type="date" class="form-control inp-all mb-3" id="birthday">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-lg-3 col-dv-left">
+                            <p>Giới tính</p>
+                        </div>
+                        <div class="form-group col-lg-9 col-dv-right">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optradio" value="boy">Nam
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="optradio" value="girl">Nữ
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-success w-100 btn-all btn-signup" id="signupBtn">Đăng ký</button>
+                    <hr class="line">
+                    <div class="justify-content-center text-center">
+                        <button class="btn btn-info w-100 btn-login btn-all" id="loginBtn">Đăng nhập</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Import depedencies -->
+    <script src="../../libs/jquery/jquery-3.5.1.js"></script>
+    <script src="../../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Jquery -->
+    <script>
+        $(document).ready(function () {
+            //get
+            $('#signupBtn').click(function () {
+                const lastName = $('#surname').val()
+                const firstName = $('#name').val()
+                const email = $('#email').val()
+                const password = $('#password').val()
+                const birthday = $('#birthday').val()
+                const gender = $("input[name='optradio']:checked").val();
+
+                if (!lastName) {
+                    $('.alert').remove()
+                    $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Vui lòng điền Họ</div>')
+                    return
+                }
+
+                if (!firstName) {
+                    $('.alert').remove()
+                    $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Vui lòng điền Tên</div>')
+                    return
+                }
+
+                if (!email) {
+                    $('.alert').remove()
+                    $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Vui lòng điền Email</div>')
+                    return
+                }
+
+                if (!password) {
+                    $('.alert').remove()
+                    $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Vui lòng điền Password</div>')
+                    return
+                }
+
+                if (!birthday) {
+                    $('.alert').remove()
+                    $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Vui lòng điền Ngày sinh</div>')
+                    return
+                }
+
+                if (!gender) {
+                    $('.alert').remove()
+                    $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Vui lòng chọn giới tính</div>')
+                    return
+                }
+
+                $.ajax(
+                    {
+                        url: "http://localhost:3000/users",
+                        data: JSON.stringify({
+                            email,
+                            password,
+                            lastName,
+                            firstName,
+                            email,
+                            password,
+                            birthday,
+                            gender
+                        }),
+                        type: 'POST',
+                        contentType: 'application/json'
+                    }).done(function (data) {
+                        if (data.isSuccess) {
+                            window.location.replace('http://127.0.0.1:5500/client/src/components/LoginPage/index.html')
+                        } else {
+                            $('.alert').remove()
+                            $('.container-fluid').prepend(`<div class="alert alert-warning" role="alert">${data.message}</div>`)
+                        }
+                    })
+            })
+        })
+    </script>
+
+</body>
+
+</html>

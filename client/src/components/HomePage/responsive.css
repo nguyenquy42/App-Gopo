@@ -1,0 +1,40 @@
+@media (max-width:1250px) {
+    .item-top-menu {
+        display: inline-block;
+        width: 70px;
+    }
+}
+
+@media (max-width:1024px) {
+    
+    .item-top-menu {
+        width: 50px;
+    }
+
+    .list-tr-menu,
+    .list-top-menu {
+        padding: 0;
+    }
+
+    .item-top-menu-right {
+        width: 61px;
+    }
+
+}
+
+@media (max-width:991.98px) {
+
+    .item-top-menu {
+        width: 40px;
+    }
+
+    .logo-top {
+        display: block !important;
+    }
+
+    .item-top-menu-right {
+        display: inline-block;
+        width: 61px;
+    }
+
+}
