@@ -212,10 +212,6 @@
                                 
                                 <div id="comment" class="collapse post-comment-main">
                                     <div class="comment-main mt-3 mb-3">
-                                        <div class="comment-item mb-2">
-                                            <h5 class="comment-author">Minh Quy</h5>
-                                            <p class="m-0"> khong hay xius nafo</p>
-                                        </div>
                                     </div>
                                     <div class=" row d-flex align-items-center post-comment-item">
                                         <div class="col-1">
@@ -356,6 +352,28 @@
                 })
             })
 
+            $.ajax({
+                url: "http://localhost:3000/post",
+                type: 'GET',
+                contentType: 'application/json'
+            }).done(function (data) {
+                if (data.status === 'error') {
+                    $('.alert').remove()
+                    $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
+                } else {
+                    console.log(data.data)
+                    data.data.forEach(post => {
+                        $(".comment-main").prepend(`
+                            <div class="comment-item mb-2">
+                                <h5 class="comment-author">Minh Quy</h5>
+                                <p class="m-0"> ${data.data.comment[0].conntent}</p>
+                            </div>
+                            `)
+                    });
+                }
+
+                console.log(data.data)
+            })
         })
 
     </script>
