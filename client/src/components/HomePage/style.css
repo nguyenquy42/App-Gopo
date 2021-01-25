@@ -1,4 +1,6 @@
-
+    body {
+        background-color: #f2f2f2;
+    }
 
     a {
         color: inherit;
@@ -9,7 +11,7 @@
     }
 
     a:hover {
-        color: #fff;
+        color: inherit;
         text-decoration: underline;
     }
 
@@ -62,9 +64,9 @@
         color: #fff;
     }
 
-    .item-top-menu i {
+    /* .item-top-menu i {
         color: #fff;
-    }
+    } */
 
     .item-top-menu.active i {
         color: inherit;
@@ -91,7 +93,6 @@
         margin: 0;
     }
 
-    .item-r i,
     .item-top-menu-right i {
         background-color: rgb(155 165 176);
         border-radius:50% ;
@@ -112,11 +113,11 @@
     }
 
     .item-r {
-        padding: 5px 5px 5px 10px;
+        padding:10px;
     }
 
     .item-r:hover {
-        background-color: #7c7c7c;
+        background-color: #f5f5f5;
         border-radius: 5px;
     }
 
@@ -162,6 +163,10 @@
     .menu-left {
         position: sticky;
         top: 75px;
+    }
+
+    .menu-left {
+        padding: 0;
     }
 
     header {
@@ -214,9 +219,40 @@
     }
 
     .body-main {
-        padding: 0 6rem;
+        margin: 0 6rem;
     }
 
     .body-main-content {
         padding: 0;
+    }
+
+    .svg-icon {
+        display: inline-block;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 100% auto;
+    }
+
+    .svg-icon.icon-feed-colorful {
+        background-image: url(../../assets/images/explore.svg);
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .svg-icon.icon-explore {
+        background-image: url(../../assets/images/follow-feed.svg);
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .svg-icon.icon-search-colorful {
+        background-image: url(../../assets/images/search-colorful.svg);
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+
+    .svg-icon.icon-flag-page {
+        background-image: url(../../assets/images/flag-page.svg);
+        width: 1.75rem;
+        height: 1.75rem;
     }

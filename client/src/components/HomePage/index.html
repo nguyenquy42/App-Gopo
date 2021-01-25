@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="responsive.css">
 </head>
 
-<body>
-    <div class="body-main-content container-fluid bg-dark h-100">
+<body class="">
+    <div class="body-main-content container-fluid h-100">
         <header>
             <nav class="menu-top navbar navbar-expand-md bg-7c navbar-dark d-flex justify-content-between">
                 <div class="menu-top-left d-flex">
@@ -43,7 +43,7 @@
                 <div class="top-menu-right d-none d-md-block">
                     <ul class="list-tr-menu">
                         <li class="item-top-menu-right"><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span
-                                    class="ml-2 text-white">Vũ</span> </a></li>
+                                    class="ml-2 ">Vũ</span> </a></li>
                         <li class="item-top-menu-right"><a href="#"><i class="fa fa-comment" aria-hidden="true"></i></a>
                         </li>
                         <li class="item-top-menu-right"><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a>
@@ -59,109 +59,94 @@
                 </div>
             </nav>
         </header>
-        <div class="row  pt-3">
-            <div class="col-md-4 col-lg-2">
+        <div class="row">
+            <div class="col-md-4 col-lg-3 p-0 bg-white">
                 <nav class="navbar navbar-expand-md menu-left">
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="slider-b-rigt">
                             <li class="item-r">
-                                <a class="text-white" href="#"><i class="fa fa-user" aria-hidden="true"></i><span
-                                        class="ml-2 text-white">Vũ</span></a>
+                                <a class="d-flex align-items-center" href="#">
+                                    <i class="ml-3 mr-2 svg-icon icon-feed-colorful"></i> Khám Phá
+                                </a>
                             </li>
                             <li class="item-r">
-                                <a class="text-white" href="#"><img src="../../assets/images/ban-be.png" alt=""> Bạn
-                                    bè</span></a>
+                                <a class="d-flex align-items-center" href="#">
+                                    <i class="ml-3 mr-2 svg-icon icon-explore"></i> Theo dõi
+                                </a>
                             </li>
                             <li class="item-r">
-                                <a class="text-white" href="#"> <img src="../../assets/images/trang.png" alt="">
-                                    Trang</span></a>
+                                <a class="d-flex align-items-center" href="#">
+                                    <i class="ml-3 mr-2 svg-icon icon-search-colorful"></i> Tìm bạn bè
+                                </a>
                             </li>
                             <li class="item-r">
-                                <a class="text-white" href="#"><img src="../../assets/images/makarting.png" alt="">
-                                    Marketplace</span></a>
-                            </li>
-                            <li class="item-r">
-                                <a class="text-white" href="#"><img src="../../assets/images/nhom.png" alt="">
-                                    Nhóm</span></a>
+                                <a class="d-flex align-items-center" href="#">
+                                    <i class="ml-3 mr-2 svg-icon icon-flag-page"></i> Trang của bạn
+                                </a>
                             </li>
                         </ul>
                     </div>
                 </nav>
             </div>
-            <div class="col-md-4 col-lg-7 body-main">
-                <div class="row">
-                    <div class="col-12">
-
-                        <div class="status-main  bg-7c mb-3 row d-flex align-items-baseline">
-                            <div class="status col-2">
-                                <a href="#"><img src="../../assets/images/avatar1.jpg" alt=""></a>
-                            </div>
-                            <div class="status-inp col-10 form-group ">
-                                <input type="button" class="form-control" data-toggle="modal" data-target="#myModal">
-                            </div>
-
-                            <!-- The Modal -->
-                            <div class="modal" id="myModal">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-
-                                        <!-- Modal Header -->
-                                        <div class="modal-header text-center">
-                                            <h4 class="modal-title">Tạo bài viết</h4>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-
-                                        <!-- Modal body -->
-                                        <div class="modal-body">
-                                            <!-- <label for="">tiêu đề</label>
-                                            <input class="form-control" type="text" id="title-post"> -->
-                                            <label for="">Nội Dung</label>
-                                            <textarea class="form-control" name="" id="content-post" cols="15"
-                                                rows="10"></textarea>
-                                            <div class="form-group">
-                                                <label for="sel1">Tác Giả:</label>
-                                                <input type="text" class="form-control" id="sel1">
-
-
+            <div class="col-md-4 col-lg-6 ">
+                <div class="body-main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12">
+        
+                                <div class="status-main  bg-7c mb-3 row d-flex align-items-baseline">
+                                    <div class="status col-2">
+                                        <a href="#"><img src="../../assets/images/default-user-avatar.png" alt=""></a>
+                                    </div>
+                                    <div class="status-inp col-10 form-group ">
+                                        <input type="button" class="form-control" data-toggle="modal" data-target="#myModal">
+                                    </div>
+        
+                                    <!-- The Modal -->
+                                    <div class="modal" id="myModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+        
+                                                <!-- Modal Header -->
+                                                <div class="modal-header text-center">
+                                                    <h4 class="modal-title">Tạo bài viết</h4>
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                </div>
+        
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    <!-- <label for="">tiêu đề</label>
+                                                    <input class="form-control" type="text" id="title-post"> -->
+                                                    <label for="">Nội Dung</label>
+                                                    <textarea class="form-control" name="" id="content-post" cols="15"
+                                                        rows="10"></textarea>
+                                                    <div class="form-group">
+                                                        <label for="sel1">Tác Giả:</label>
+                                                        <input type="text" class="form-control" id="sel1">
+        
+        
+                                                    </div>
+                                                    <div class="text-center mt-5">
+                                                        <button class="btn btn-success btn-post">Đăng</button>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="text-center mt-5">
-                                                <button class="btn btn-success btn-post">Đăng</button>
-                                            </div>
                                         </div>
-
-                                        <!-- Modal footer -->
-                                        <!-- <div class="modal-footer">
-                                            <button type="button" class="btn btn-danger"
-                                                data-dismiss="modal">Close</button>
-                                        </div> -->
-
                                     </div>
                                 </div>
+        
+                                <div class="content row">
+        
+                                </div>
                             </div>
-                            <div class="col-12 pt-4">
-                                <ul class="list-st">
-                                    <li class="icon-status"><a class="text-white" href="#"><span><i
-                                                    class="sp_VACnRvZAAMq sx_f26c61" role="img"></i></span>
-                                            Ảnh/Video</a></li>
-                                    <li class="icon-status"><a class="text-white" href="#"><span><i
-                                                    class="sp_VACnRvZAAMq sx_20b3a8" role="img"></i></span> Gắn thẻ bạn
-                                            bè</a></li>
-                                    <li class="icon-status"><a class="text-white" href="#"><span><i
-                                                    class="sp_VACnRvZAAMq sx_5439a7" role="img"></i></span> Cảm xúc/hoạt
-                                            động</a></li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div class="content">
-
                         </div>
                     </div>
                 </div>
+                
             </div>
-            <div class="col-md-4 col-lg-3 d-none d-md-block ">
+            <div class="col-md-4 col-lg-3 d-none d-md-block  bg-white">
                 <div class="menu-right">
-                    <h3 class="text-white">Người Liên Hệ</h3>
+                    <h3>Người Liên Hệ</h3>
                     <ul class="slider-b-rigt list-user">
                     </ul>
                 </div>
@@ -192,11 +177,11 @@
                                     <div class="author-main pb-2">
                                         <a href="#"><img src="../../assets/images/avatar-2.jpg" alt=""></a>
                                         <a href="#">
-                                            <span class="text-white">${post.author}</span>
+                                            <span>${post.author}</span>
                                         </a>
                                     </div>
                                     <div class="author-status">
-                                        <span class="text-white">${post.content}</span>
+                                        <span>${post.content}</span>
                                     </div>
                                 </div>
                                
@@ -207,12 +192,12 @@
                                         <img src="../../assets/images/happy.png" alt="icon">
                                         <img src="../../assets/images/heart.png" alt="icon">
                                         <a href="#">
-                                            <span class="text-white"> 1,9k</span>
+                                            <span> 1,9k</span>
                                         </a>
                                     </div>
                                     <div class="comment d-flex">
-                                        <a class="text-white mr-2" href="#">26 bình luận</a>
-                                        <a class="text-white mr-2" href="#">86 lượt chia sẻ</a>
+                                        <a class=" mr-2" href="#">26 bình luận</a>
+                                        <a class=" mr-2" href="#">86 lượt chia sẻ</a>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-around btn-top-ac">
@@ -238,8 +223,8 @@
                     console.log(data)
                     data.data.forEach(user => {
                         $('.list-user').prepend(`<li class="item-r">
-                        <a class="text-white" href="#"><i class="fa fa-user-circle" aria-hidden="true"></i><span
-                                class="ml-2 text-white">${user.lastName} ${user.firstName}</span></a>
+                        <a href="#"><i class="fa fa-user-circle" aria-hidden="true"></i><span
+                                class="ml-2 ">${user.lastName} ${user.firstName}</span></a>
                     </li>`)
                     })
                 }
@@ -281,11 +266,11 @@
                                     <div class="author-main pb-2">
                                         <a href="#"><img src="../../assets/images/avatar-2.jpg" alt=""></a>
                                         <a href="#">
-                                            <span class="text-white">${data.data.name}</span>
+                                            <span>${data.data.name}</span>
                                         </a>
                                     </div>
                                     <div class="author-status">
-                                        <span class="text-white">${data.data.content}</span>
+                                        <span>${data.data.content}</span>
                                     </div>
                                 </div>
                                
