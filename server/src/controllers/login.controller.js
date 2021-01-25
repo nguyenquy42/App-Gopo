@@ -1,5 +1,5 @@
 // const { users } = require('../data/data');
-const User = require('../../models/user.model')
+const User = require('../models/user.model')
 
 
 module.exports.login = async (req, res) => {

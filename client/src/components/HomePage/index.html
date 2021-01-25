@@ -93,26 +93,28 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
-        
-                                <div class="status-main  bg-7c mb-3 row d-flex align-items-baseline">
+
+                                <div class="status-main  bg-7c mb-3 mt-2 row d-flex align-items-cneter">
                                     <div class="status col-2">
                                         <a href="#"><img src="../../assets/images/default-user-avatar.png" alt=""></a>
                                     </div>
                                     <div class="status-inp col-10 form-group ">
-                                        <input type="button" class="form-control" data-toggle="modal" data-target="#myModal">
+                                        <input type="button" class="form-control" data-toggle="modal"
+                                            data-target="#myModal">
                                     </div>
-        
+
                                     <!-- The Modal -->
                                     <div class="modal" id="myModal">
                                         <div class="modal-dialog">
                                             <div class="modal-content">
-        
+
                                                 <!-- Modal Header -->
                                                 <div class="modal-header text-center">
                                                     <h4 class="modal-title">Tạo bài viết</h4>
-                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
                                                 </div>
-        
+
                                                 <!-- Modal body -->
                                                 <div class="modal-body">
                                                     <!-- <label for="">tiêu đề</label>
@@ -123,8 +125,8 @@
                                                     <div class="form-group">
                                                         <label for="sel1">Tác Giả:</label>
                                                         <input type="text" class="form-control" id="sel1">
-        
-        
+
+
                                                     </div>
                                                     <div class="text-center mt-5">
                                                         <button class="btn btn-success btn-post">Đăng</button>
@@ -134,15 +136,15 @@
                                         </div>
                                     </div>
                                 </div>
-        
+
                                 <div class="content row">
-        
+
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                
+
             </div>
             <div class="col-md-4 col-lg-3 d-none d-md-block  bg-white">
                 <div class="menu-right">
@@ -155,8 +157,9 @@
     </div>
     <!-- Import depedencies -->
     <script src="../../libs/jquery/jquery-3.5.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../../libs/bootstrap/js/bootstrap.min.js"></script>
-    <!-- <script src="script.js"></script> -->
+    <script src="scrpit.js"></script>
     <!-- Jquery -->
     <script>
         $(document).ready(function () {
@@ -172,10 +175,10 @@
                 } else {
                     console.log(data)
                     data.data.forEach(post => {
-                        $(".content").prepend(`<div class="content-main  bg-7c mb-3 ">
+                        $(".content").prepend(`<div class="content-main bg-7c mb-3 " key="${post._id}">
                                 <div class="author">
                                     <div class="author-main pb-2">
-                                        <a href="#"><img src="../../assets/images/avatar-2.jpg" alt=""></a>
+                                        <a href="#"><img src="../../assets/images/default-user-avatar.png" alt=""></a>
                                         <a href="#">
                                             <span>${post.author}</span>
                                         </a>
@@ -187,10 +190,11 @@
                                
                                 <div class="reaction-comment d-flex justify-content-between">
                                     <div class="reaction">
-                                        <img src="../../assets/images/like.png" alt="icon">
-                                        <img src="../../assets/images/dislike.png" alt="icon">
-                                        <img src="../../assets/images/happy.png" alt="icon">
-                                        <img src="../../assets/images/heart.png" alt="icon">
+                                        <img src="../../assets/images/reaction/like-reaction.png" alt="icon">
+                                        <img src="../../assets/images/reaction/haha-reaction.png" alt="icon">
+                                        <img src="../../assets/images/reaction/love-reaction.png" alt="icon">
+                                        <img src="../../assets/images/reaction/angry-reaction.png" alt="icon">
+                                        <img src="../../assets/images/reaction/wow-reaction.png" alt="icon">
                                         <a href="#">
                                             <span> 1,9k</span>
                                         </a>
@@ -201,13 +205,35 @@
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-around btn-top-ac">
-                                    <div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-like"></i> thích</button></div>
-                                    <div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-comment-white-oval-bubble"></i> bình luận</button></div>
-                                    <div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-share"></i> chia sẻ</button></div>
+                                    <div class="btn-item"> <button data-toggle="collapse" data-target="#action" class="btn btn-reaction"> <i class="flaticon-like"></i> thích</button></div>
+                                    <div class="btn-item"> <button data-toggle="collapse" data-target="#comment" class="btn btn-reaction postcomment" id=""> <i class="flaticon-comment-white-oval-bubble"></i> bình luận</button></div>
+                                    <div class="btn-item"> <button data-toggle="collapse" data-target="#share" class="btn btn-reaction"> <i class="flaticon-share"></i> chia sẻ</button></div>
+                                </div>
+                                
+                                <div id="comment" class="collapse post-comment-main">
+                                    <div class="comment-main mt-3 mb-3">
+                                        <div class="comment-item mb-2">
+                                            <h5 class="comment-author">Minh Quy</h5>
+                                            <p class="m-0"> khong hay xius nafo</p>
+                                        </div>
+                                    </div>
+                                    <div class=" row d-flex align-items-center post-comment-item">
+                                        <div class="col-1">
+                                            <img src="../../assets/images/default-user-avatar.png" alt="author-commet" class="rounded-circle" style="width:35px;">
+                                        </div>
+                                        <div class="col-9 post-main">
+                                            <input type="text" class="form-control gPgfXu comment-post">
+                                        </div>
+                                        <div class="col-2 p-0">
+                                            <button class="btn btn-success btn-comment">Đăng</button>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>`)
                     });
                 }
+
+                console.log(data.data)
             })
 
             // get users
@@ -220,15 +246,16 @@
                     $('.alert').remove()
                     $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
                 } else {
-                    console.log(data)
+                    // console.log(data)
                     data.data.forEach(user => {
                         $('.list-user').prepend(`<li class="item-r">
                         <a href="#"><i class="fa fa-user-circle" aria-hidden="true"></i><span
                                 class="ml-2 ">${user.lastName} ${user.firstName}</span></a>
-                    </li>`)
+                        </li>`)
                     })
                 }
             })
+
 
             // Create post
             $('.btn-post').click(function () {
@@ -289,7 +316,48 @@
                 $('#sel1').val('');
                 $('#content-post').val('');
             })
+
+
+            //post comment
+            $(".content").on("click", ".content-main .post-comment-main .post-comment-item .btn-comment", function (event) {
+                event.preventDefault();
+                let idpost = $(this).parents('.content-main').attr("key");
+                console.log('Comment - ', idpost);
+
+                let comment = $('.comment-post').val()
+                console.log(comment);
+
+                if (!comment) {
+                    $('.alert').remove()
+                    $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Content Invalid</div>')
+                    return
+                }
+                $.ajax({
+                    url: `http://localhost:3000/post/${idpost}`,
+                    data: JSON.stringify({
+                        type: "comments",
+                        data: {comment}
+                    }),
+                    type: 'PUT',
+                    contentType: 'application/json'
+                }).done(function (data) {
+                    if (!data.isSuccess) {
+                        $('.alert').remove()
+                        $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">${data.message}</div>`)
+                    } else {
+                        console.log(data)
+                        $(".comment-main").prepend(`
+                            <div class="comment-item mb-2">
+                                <h5 class="comment-author">Minh Quy</h5>
+                                <p class="m-0"> ${data.data.comment}</p>
+                            </div>
+                            `)
+                    }
+                })
+            })
+
         })
+
     </script>
 
 </body>

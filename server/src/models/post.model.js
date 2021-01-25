@@ -10,12 +10,7 @@ const postSchema = new Schema({
         smile: Number,
         heart: Number
     },
-    comments: [
-        {
-            author: String,
-            content: String
-        }
-    ]
+    comments: Array
 },
     {
         collection: 'Posts'

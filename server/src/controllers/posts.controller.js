@@ -1,8 +1,18 @@
-// const { posts } = require('../data/post.data');
-// const { v4: uuidv4 } = require('uuid');
-const Post = require('../../models/post.model')
+const Post = require('../models/post.model')
 
+module.exports.createPostComment = async (req, res) => {
 
+    const {type, data} = req.body;
+    const _id = req.params
+
+    if (type === 'comments') {
+        const post = await Post.findOne({_id})
+         post.comments.push({
+             conntent:data.comment
+         })
+         post.save()
+    }
+}
 
 module.exports.getPost = async (req, res) => {
     const posts = await Post.find()
@@ -10,9 +20,6 @@ module.exports.getPost = async (req, res) => {
 }
 
 module.exports.createPost = async (req, res) => {
-    // const newPost = { id: uuidv4(), ...req.body }
-    // posts.push(newPost)
-    // res.json({ status: 'success', newPost })
 
     const { author, content } = req.body;
 
