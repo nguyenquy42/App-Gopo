@@ -10,7 +10,7 @@ $(document).ready(function () {
             $('.alert').remove()
             $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
         } else {
-            console.log(data)
+            // console.log(data)
             data.data.forEach(post => {
                 $(".content").prepend(`<div class="content-main bg-7c mb-3 " key="${post._id}">
                             <div class="author">
@@ -42,12 +42,12 @@ $(document).ready(function () {
                                 </div>
                             </div>
                             <div class="d-flex justify-content-around btn-top-ac">
-                                <div class="btn-item"> <button data-toggle="collapse" data-target="#action" class="btn btn-reaction"> <i class="flaticon-like"></i> thích</button></div>
-                                <div class="btn-item"> <button data-toggle="collapse" data-target="#comment" class="btn btn-reaction postcomment" id=""> <i class="flaticon-comment-white-oval-bubble"></i> bình luận</button></div>
-                                <div class="btn-item"> <button data-toggle="collapse" data-target="#share" class="btn btn-reaction"> <i class="flaticon-share"></i> chia sẻ</button></div>
+                                <div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-like"></i> thích</button></div>
+                                <div class="btn-item"> <button class="btn btn-reaction postcomment" id=""> <i class="flaticon-comment-white-oval-bubble"></i> bình luận</button></div>
+                                <div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-share"></i> chia sẻ</button></div>
                             </div>
                             
-                            <div id="comment" class="collapse post-comment-main">
+                            <div class="post-comment-main">
                                 <div class="comment-main mt-3 mb-3">
                                 </div>
                                 <div class=" row d-flex align-items-center post-comment-item">
@@ -66,7 +66,7 @@ $(document).ready(function () {
             });
         }
 
-        console.log(data.data)
+        // console.log(data.data)
     })
 
     // get users
@@ -199,16 +199,21 @@ $(document).ready(function () {
             $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
         } else {
             console.log(data.data)
-            data.data.forEach(post => {
-                $(".comment-main").prepend(`
-                        <div class="comment-item mb-2">
-                            <h5 class="comment-author">Minh Quy</h5>
-                            <p class="m-0"> ${data.data.comment[0].conntent}</p>
-                        </div>
-                        `)
-            });
+            if (!data.data.comment) {
+                console.log('không có comment!!!');
+                return;
+            }else{
+                data.data.forEach(post => {
+                    $(".comment-main").prepend(`
+                            <div class="comment-item mb-2">
+                                <h5 class="comment-author">Minh Quy</h5>
+                                <p class="m-0"> ${data.data.comment}</p>
+                            </div>
+                            `)
+                });
+            } 
         }
 
-        console.log(data.data)
+        // console.log(data.data)
     })
 })
