@@ -57,12 +57,9 @@
 
     .item-top-menu-right {
         display: inline-block;
-        width: 70px;
+        /* width: 70px; */
     }
 
-    .item-top-menu-right i {
-        color: #fff;
-    }
 
     /* .item-top-menu i {
         color: #fff;
@@ -73,7 +70,7 @@
     }
 
     .item-top-menu.active {
-        border-bottom: 2px solid #007bff;
+        border-bottom: 3px solid #6fbe49;
     }
 
     .item-top-menu i {
@@ -89,15 +86,16 @@
     }
 
     .list-tr-menu {
-        text-align: right;
         margin: 0;
     }
 
     .item-top-menu-right i {
-        background-color: rgb(155 165 176);
+        background-color: #e7e7e7;
         border-radius:50% ;
         padding: 10px;
+        /* color: #fff; */
     }
+    
 
     .slider-b-rigt {
         list-style-type: none;
@@ -221,9 +219,9 @@
         margin: 0 6rem;
     }
 
-    .body-main-content {
+    /* .body-main-content {
         padding: 0;
-    }
+    } */
 
     .svg-icon {
         display: inline-block;
@@ -233,25 +231,25 @@
     }
 
     .svg-icon.icon-feed-colorful {
-        background-image: url(../../assets/images/explore.svg);
+        background-image: url(../../../../assets/images/explore.svg);
         width: 1.75rem;
         height: 1.75rem;
     }
 
     .svg-icon.icon-explore {
-        background-image: url(../../assets/images/follow-feed.svg);
+        background-image: url(../../../../assets/images/follow-feed.svg);
         width: 1.75rem;
         height: 1.75rem;
     }
 
     .svg-icon.icon-search-colorful {
-        background-image: url(../../assets/images/search-colorful.svg);
+        background-image: url(../../../../assets/images/search-colorful.svg);
         width: 1.75rem;
         height: 1.75rem;
     }
 
     .svg-icon.icon-flag-page {
-        background-image: url(../../assets/images/flag-page.svg);
+        background-image: url(../../../../assets/images/flag-page.svg);
         width: 1.75rem;
         height: 1.75rem;
     }
@@ -260,4 +258,38 @@
         background-color: #f5f5f5;
         padding: .5rem .625rem;
         border-radius: 1rem;
+    }
+
+    .item-top-menu-right .nav-link {
+        padding: 0;
+    }
+
+    .list-item .item-img img {
+        width: 10%;
+    }
+
+
+    .add-frend {
+        background-color: #6fbe44;
+        padding: 10px 20px;
+        border-radius: 5px;
+        color: #fff;
+    }
+
+    .add-frend:hover {
+        background-color: #5ea339;
+        color: #fff;
+        text-decoration: none
+    }
+
+    .nav-top-menu {
+        padding-bottom: 0;
+    }
+
+    .item-add {
+        background-color: #ecf7e7 ;
+        color: #6FBE49 ;
+        padding: 7px;
+        margin: 0 30px;
+        border-radius: 5px;
     }

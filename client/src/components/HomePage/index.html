@@ -7,15 +7,16 @@
     <title>Home Page</title>
     <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="flaticon.css">
-    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/flaticon.css">
+    <link rel="stylesheet" href="assets/css/responsive.css">
 </head>
 
 <body class="">
     <div class="body-main-content container-fluid h-100">
         <header>
-            <nav class="menu-top navbar navbar-expand-md bg-7c navbar-dark d-flex justify-content-between">
+            <nav
+                class="menu-top navbar navbar-expand-md bg-7c navbar-dark d-flex justify-content-between row nav-top-menu">
                 <div class="menu-top-left d-flex">
                     <a class="navbar-brand" href="#"><img src="../../assets/images/logo.svg" alt=""></a>
                     <form class="form-inline" action="/action_page.php">
@@ -28,29 +29,33 @@
                 </div>
                 <div class="button-menu-nav">
                     <ul class="list-top-menu">
-                        <li class="item-top-menu text-center active"><a href="#"><i class="fa fa-home"
-                                    aria-hidden="true"></i></a></li>
-                        <li class="item-top-menu text-center"><a href="#"><i class="fa fa-users"
-                                    aria-hidden="true"></i></a>
+                        <li class="item-top-menu text-center active"><a href="#"><img
+                                    src="../../assets/images/nav/home-active.svg" alt=""></a></li>
+                        <li class="item-top-menu text-center"><a href="#"><img
+                                    src="../../assets/images/nav/news-default.svg" alt=""></a>
                         </li>
-                        <li class="item-top-menu text-center"><a href="#"><i class="fa fa-clock"
-                                    aria-hidden="true"></i></a>
+                        <li class="item-top-menu text-center"><a href="#"><img
+                                    src="../../assets/images/nav/group-default.svg" alt=""></a>
                         </li>
-                        <li class="item-top-menu text-center"><a href="#"><i class="fa fa-user-circle"
-                                    aria-hidden="true"></i></a></li>
+                        <li class="item-top-menu text-center"><a href="#"><img
+                                    src="../../assets/images/nav/video-default.svg" alt=""></a></li>
+                        <li class="item-top-menu text-center"><a href="#"><img
+                                    src="../../assets/images/nav/chat-default.svg" alt=""></a></li>
                     </ul>
                 </div>
                 <div class="top-menu-right d-none d-md-block">
                     <ul class="list-tr-menu">
-                        <li class="item-top-menu-right"><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span
-                                    class="ml-2 ">Vũ</span> </a></li>
-                        <li class="item-top-menu-right"><a href="#"><i class="fa fa-comment" aria-hidden="true"></i></a>
+                        <li class="item-top-menu-right mr-3"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>
+                            </a>
                         </li>
-                        <li class="item-top-menu-right"><a href="#"><i class="fa fa-bell" aria-hidden="true"></i></a>
+                        <li class="item-top-menu-right mr-3"><a href="#"><i class="fa fa-bell"
+                                    aria-hidden="true"></i></a>
                         </li>
                         <li class="item-top-menu-right nav-item dropdown">
-                            <a class="nav-link" data-toggle="dropdown" href="#"><i class="fa fa-chevron-down"
-                                    aria-hidden="true"></i></a>
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                <img src="../../assets/images/default-user-avatar.png" alt=""
+                                    style="width:20%; border-radius: 50%;"> admin
+                            </a>
                             <div class="dropdown-menu">
                                 <a class="dropdown-item" href="../LoginPage/index.html">Thoát</a>
                             </div>
@@ -61,8 +66,8 @@
         </header>
         <div class="row">
             <div class="col-md-4 col-lg-3 p-0 bg-white">
-                <nav class="navbar navbar-expand-md menu-left">
-                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <nav class="navbar navbar-expand-md menu-left d-block h-100 align-content-between flex-wrap">
+                    <div class="collapse navbar-collapse  h-100 d-flex align-content-between flex-wrap" id="collapsibleNavbar">
                         <ul class="slider-b-rigt">
                             <li class="item-r">
                                 <a class="d-flex align-items-center" href="#">
@@ -84,7 +89,21 @@
                                     <i class="ml-3 mr-2 svg-icon icon-flag-page"></i> Trang của bạn
                                 </a>
                             </li>
+                            <li class="item-add text-center">
+                                <a class="text-center" href="#">
+                                    <img src="../../assets/images/create-page.svg" alt=""> Trang của bạn
+                                </a>
+                            </li>
                         </ul>
+                        
+                        <div class="text-secondary text-center w-100">
+                            <div class=""><a target="_blank"
+                                    rel="noopener noreferrer" href="https://dieukhoan.gapo.vn" class="text-secondary">Điều
+                                    khoản sử dụng</a><span class="px-1 mb-2">.</span><a target="_blank"
+                                    rel="noopener noreferrer" href="https://hotro.gapo.vn" class="text-secondary">Hỗ trợ
+                                    khách hàng</a></div>
+                            <div class="py-1">Gapo © 2020</div>
+                        </div>
                     </div>
                 </nav>
             </div>
@@ -95,10 +114,10 @@
                             <div class="col-12">
 
                                 <div class="status-main  bg-7c mb-3 mt-2 row d-flex align-items-cneter">
-                                    <div class="status col-2">
+                                    <div class="status col-1">
                                         <a href="#"><img src="../../assets/images/default-user-avatar.png" alt=""></a>
                                     </div>
-                                    <div class="status-inp col-10 form-group ">
+                                    <div class="status-inp col-11 form-group ">
                                         <input type="button" class="form-control" data-toggle="modal"
                                             data-target="#myModal">
                                     </div>
@@ -138,7 +157,71 @@
                                 </div>
 
                                 <div class="content row">
+                                    <div class="content-main bg-7c mb-3 " key="${post._id}">
+                                        <div class="author">
+                                            <div class="author-main pb-2">
+                                                <a href="#"><img src="../../assets/images/default-user-avatar.png"
+                                                        alt="img" style="width: 30px;"></a>
+                                                <a href="#">
+                                                    <span>Minh Quý</span>
+                                                </a>
+                                            </div>
+                                            <div class="author-status">
+                                                <span>không thể tin được</span>
+                                            </div>
+                                        </div>
 
+                                        <div class="reaction-comment d-flex justify-content-between">
+                                            <div class="reaction">
+                                                <img src="../../assets/images/reaction/like-reaction.png" alt="icon">
+                                                <img src="../../assets/images/reaction/haha-reaction.png" alt="icon">
+                                                <img src="../../assets/images/reaction/love-reaction.png" alt="icon">
+                                                <img src="../../assets/images/reaction/angry-reaction.png" alt="icon">
+                                                <img src="../../assets/images/reaction/wow-reaction.png" alt="icon">
+                                                <a href="#">
+                                                    <span> 1,9k</span>
+                                                </a>
+                                            </div>
+                                            <div class="comment d-flex">
+                                                <a class=" mr-2" href="#">26 bình luận</a>
+                                                <a class=" mr-2" href="#">86 lượt chia sẻ</a>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-around btn-top-ac">
+                                            <div class="btn-item"> <button class="btn btn-reaction"> <i
+                                                        class="flaticon-like"></i> thích</button></div>
+                                            <div class="btn-item"> <button class="btn btn-reaction postcomment" id="">
+                                                    <i class="flaticon-comment-white-oval-bubble"></i> bình
+                                                    luận</button></div>
+                                            <div class="btn-item"> <button class="btn btn-reaction"> <i
+                                                        class="flaticon-share"></i> chia sẻ</button></div>
+                                        </div>
+
+                                        <div class="post-comment-main">
+                                            <div class="comment-main mt-3 mb-3">
+                                                <div class="comment-item mb-3">
+                                                    <h5 class="comment-author">Minh Quy</h5>
+                                                    <p class="m-0"> không tin chuyện gì thế bạn</p>
+                                                </div>
+                                                <div class="comment-item mb-3">
+                                                    <h5 class="comment-author">Minh Quy</h5>
+                                                    <p class="m-0">Có chuyện gì HOT thế bạn</p>
+                                                </div>
+                                            </div>
+                                            <div class=" row d-flex align-items-center post-comment-item">
+                                                <div class="col-1">
+                                                    <img src="../../assets/images/default-user-avatar.png"
+                                                        alt="author-commet" class="rounded-circle" style="width:35px;">
+                                                </div>
+                                                <div class="col-9 post-main">
+                                                    <input type="text" class="form-control gPgfXu comment-post">
+                                                </div>
+                                                <div class="col-2 p-0">
+                                                    <button class="btn btn-success btn-comment">Đăng</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -148,9 +231,23 @@
             </div>
             <div class="col-md-4 col-lg-3 d-none d-md-block  bg-white">
                 <div class="menu-right">
-                    <h3>Người Liên Hệ</h3>
-                    <ul class="slider-b-rigt list-user">
-                    </ul>
+                    <div class="menu-items">
+                        <p>Tài Khoản: <span>0</span> <img src="../../assets/images/gcoin.svg" alt=""></p>
+                        <hr class="line">
+                    </div>
+                    <div class="menu-items">
+                        <p>Danh bạ</p>
+                        <div class="list-item text-center">
+                            <div class="item-img">
+                                <img src="../../assets/images/group.png" alt="">
+                            </div>
+                            <div class="item-contents">
+                                <p>Bạn chưa có bạn bè nào</p>
+                                <a class="add-frend" href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Thêm
+                                    bạn</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -159,224 +256,7 @@
     <script src="../../libs/jquery/jquery-3.5.1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../../libs/bootstrap/js/bootstrap.min.js"></script>
-    <script src="scrpit.js"></script>
-    <!-- Jquery -->
-    <script>
-        $(document).ready(function () {
-            //get post
-            $.ajax({
-                url: "http://localhost:3000/post",
-                type: 'GET',
-                contentType: 'application/json'
-            }).done(function (data) {
-                if (data.status === 'error') {
-                    $('.alert').remove()
-                    $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
-                } else {
-                    console.log(data)
-                    data.data.forEach(post => {
-                        $(".content").prepend(`<div class="content-main bg-7c mb-3 " key="${post._id}">
-                                <div class="author">
-                                    <div class="author-main pb-2">
-                                        <a href="#"><img src="../../assets/images/default-user-avatar.png" alt=""></a>
-                                        <a href="#">
-                                            <span>${post.author}</span>
-                                        </a>
-                                    </div>
-                                    <div class="author-status">
-                                        <span>${post.content}</span>
-                                    </div>
-                                </div>
-                               
-                                <div class="reaction-comment d-flex justify-content-between">
-                                    <div class="reaction">
-                                        <img src="../../assets/images/reaction/like-reaction.png" alt="icon">
-                                        <img src="../../assets/images/reaction/haha-reaction.png" alt="icon">
-                                        <img src="../../assets/images/reaction/love-reaction.png" alt="icon">
-                                        <img src="../../assets/images/reaction/angry-reaction.png" alt="icon">
-                                        <img src="../../assets/images/reaction/wow-reaction.png" alt="icon">
-                                        <a href="#">
-                                            <span> 1,9k</span>
-                                        </a>
-                                    </div>
-                                    <div class="comment d-flex">
-                                        <a class=" mr-2" href="#">26 bình luận</a>
-                                        <a class=" mr-2" href="#">86 lượt chia sẻ</a>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-around btn-top-ac">
-                                    <div class="btn-item"> <button data-toggle="collapse" data-target="#action" class="btn btn-reaction"> <i class="flaticon-like"></i> thích</button></div>
-                                    <div class="btn-item"> <button data-toggle="collapse" data-target="#comment" class="btn btn-reaction postcomment" id=""> <i class="flaticon-comment-white-oval-bubble"></i> bình luận</button></div>
-                                    <div class="btn-item"> <button data-toggle="collapse" data-target="#share" class="btn btn-reaction"> <i class="flaticon-share"></i> chia sẻ</button></div>
-                                </div>
-                                
-                                <div id="comment" class="collapse post-comment-main">
-                                    <div class="comment-main mt-3 mb-3">
-                                    </div>
-                                    <div class=" row d-flex align-items-center post-comment-item">
-                                        <div class="col-1">
-                                            <img src="../../assets/images/default-user-avatar.png" alt="author-commet" class="rounded-circle" style="width:35px;">
-                                        </div>
-                                        <div class="col-9 post-main">
-                                            <input type="text" class="form-control gPgfXu comment-post">
-                                        </div>
-                                        <div class="col-2 p-0">
-                                            <button class="btn btn-success btn-comment">Đăng</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>`)
-                    });
-                }
-
-                console.log(data.data)
-            })
-
-            // get users
-            $.ajax({
-                url: "http://localhost:3000/users",
-                type: "GET",
-                contentType: 'application/json'
-            }).done(function (data) {
-                if (!data.isSuccess) {
-                    $('.alert').remove()
-                    $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
-                } else {
-                    // console.log(data)
-                    data.data.forEach(user => {
-                        $('.list-user').prepend(`<li class="item-r">
-                        <a href="#"><i class="fa fa-user-circle" aria-hidden="true"></i><span
-                                class="ml-2 ">${user.lastName} ${user.firstName}</span></a>
-                        </li>`)
-                    })
-                }
-            })
-
-
-            // Create post
-            $('.btn-post').click(function () {
-                let author = $('#sel1').val();
-                let content = $('#content-post').val()
-                if (!author) {
-                    $('.alert').remove()
-                    $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Name Invalid</div>')
-                    return
-                }
-
-                if (!content) {
-                    $('.alert').remove()
-                    $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Content Invalid</div>')
-                    return
-                }
-
-                $.ajax({
-                    url: "http://localhost:3000/post",
-                    data: JSON.stringify({
-                        author,
-                        content
-                    }),
-                    type: 'POST',
-                    contentType: 'application/json'
-                }).done(function (data) {
-                    if (!data.isSuccess) {
-                        $('.alert').remove()
-                        $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">${data.message}</div>`)
-                    } else {
-                        // data.posts.forEach(post => {
-                        console.log(data)
-                        $(".content").prepend(`<div class="content-main  bg-7c mb-3">
-                                <div class="author">
-                                    <div class="author-main pb-2">
-                                        <a href="#"><img src="../../assets/images/avatar-2.jpg" alt=""></a>
-                                        <a href="#">
-                                            <span>${data.data.name}</span>
-                                        </a>
-                                    </div>
-                                    <div class="author-status">
-                                        <span>${data.data.content}</span>
-                                    </div>
-                                </div>
-                               
-                                <div class="reaction-comment d-flex justify-content-between">
-                                    <div class="reaction">
-                                        <span>${data.data.reaction.like}<img src="../../assets/images/linke.png" alt="icon"></span>
-                                        <span><img src="../../assets/images/happy.png" alt="icon"></span>
-                                        <span><img src="../../assets/images/heart.png" alt="icon"></span>
-                                    </div>
-                                    
-                                </div>
-                            </div>`)
-                        // });
-                    }
-                })
-                $('#sel1').val('');
-                $('#content-post').val('');
-            })
-
-
-            //post comment
-            $(".content").on("click", ".content-main .post-comment-main .post-comment-item .btn-comment", function (event) {
-                event.preventDefault();
-                let idpost = $(this).parents('.content-main').attr("key");
-                console.log('Comment - ', idpost);
-
-                let comment = $('.comment-post').val()
-                console.log(comment);
-
-                if (!comment) {
-                    $('.alert').remove()
-                    $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Content Invalid</div>')
-                    return
-                }
-                $.ajax({
-                    url: `http://localhost:3000/post/${idpost}`,
-                    data: JSON.stringify({
-                        type: "comments",
-                        data: {comment}
-                    }),
-                    type: 'PUT',
-                    contentType: 'application/json'
-                }).done(function (data) {
-                    if (!data.isSuccess) {
-                        $('.alert').remove()
-                        $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">${data.message}</div>`)
-                    } else {
-                        console.log(data)
-                        $(".comment-main").prepend(`
-                            <div class="comment-item mb-2">
-                                <h5 class="comment-author">Minh Quy</h5>
-                                <p class="m-0"> ${data.data.comment}</p>
-                            </div>
-                            `)
-                    }
-                })
-            })
-
-            $.ajax({
-                url: "http://localhost:3000/post",
-                type: 'GET',
-                contentType: 'application/json'
-            }).done(function (data) {
-                if (data.status === 'error') {
-                    $('.alert').remove()
-                    $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
-                } else {
-                    console.log(data.data)
-                    data.data.forEach(post => {
-                        $(".comment-main").prepend(`
-                            <div class="comment-item mb-2">
-                                <h5 class="comment-author">Minh Quy</h5>
-                                <p class="m-0"> ${data.data.comment[0].conntent}</p>
-                            </div>
-                            `)
-                    });
-                }
-
-                console.log(data.data)
-            })
-        })
-
-    </script>
+    <script src="assets/js/scrpit.js"></script>
 
 </body>
 
