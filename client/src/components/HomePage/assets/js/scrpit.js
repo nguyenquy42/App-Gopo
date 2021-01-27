@@ -1,73 +1,6 @@
 
 $(document).ready(function () {
-    //get post
-    $.ajax({
-        url: "http://localhost:3000/post",
-        type: 'GET',
-        contentType: 'application/json'
-    }).done(function (data) {
-        if (data.status === 'error') {
-            $('.alert').remove()
-            $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
-        } else {
-            // console.log(data)
-            data.data.forEach(post => {
-                $(".content").prepend(`<div class="content-main bg-7c mb-3 " key="${post._id}">
-                            <div class="author">
-                                <div class="author-main pb-2">
-                                    <a href="#"><img src="../../assets/images/default-user-avatar.png" alt=""></a>
-                                    <a href="#">
-                                        <span>${post.author}</span>
-                                    </a>
-                                </div>
-                                <div class="author-status">
-                                    <span>${post.content}</span>
-                                </div>
-                            </div>
-                           
-                            <div class="reaction-comment d-flex justify-content-between">
-                                <div class="reaction">
-                                    <img src="../../assets/images/reaction/like-reaction.png" alt="icon">
-                                    <img src="../../assets/images/reaction/haha-reaction.png" alt="icon">
-                                    <img src="../../assets/images/reaction/love-reaction.png" alt="icon">
-                                    <img src="../../assets/images/reaction/angry-reaction.png" alt="icon">
-                                    <img src="../../assets/images/reaction/wow-reaction.png" alt="icon">
-                                    <a href="#">
-                                        <span> 1,9k</span>
-                                    </a>
-                                </div>
-                                <div class="comment d-flex">
-                                    <a class=" mr-2" href="#">26 bình luận</a>
-                                    <a class=" mr-2" href="#">86 lượt chia sẻ</a>
-                                </div>
-                            </div>
-                            <div class="d-flex justify-content-around btn-top-ac">
-                                <div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-like"></i> thích</button></div>
-                                <div class="btn-item"> <button class="btn btn-reaction postcomment" id=""> <i class="flaticon-comment-white-oval-bubble"></i> bình luận</button></div>
-                                <div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-share"></i> chia sẻ</button></div>
-                            </div>
-                            
-                            <div class="post-comment-main">
-                                <div class="comment-main mt-3 mb-3">
-                                </div>
-                                <div class=" row d-flex align-items-center post-comment-item">
-                                    <div class="col-1">
-                                        <img src="../../assets/images/default-user-avatar.png" alt="author-commet" class="rounded-circle" style="width:35px;">
-                                    </div>
-                                    <div class="col-9 post-main">
-                                        <input type="text" class="form-control gPgfXu comment-post">
-                                    </div>
-                                    <div class="col-2 p-0">
-                                        <button class="btn btn-success btn-comment">Đăng</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>`)
-            });
-        }
-
-        // console.log(data.data)
-    })
+    
 
     // get users
     $.ajax({
@@ -135,11 +68,16 @@ $(document).ready(function () {
                             </div>
                            
                             <div class="reaction-comment d-flex justify-content-between">
-                                <div class="reaction">
-                                    <span>${data.data.reaction.like}<img src="../../assets/images/linke.png" alt="icon"></span>
-                                    <span><img src="../../assets/images/happy.png" alt="icon"></span>
-                                    <span><img src="../../assets/images/heart.png" alt="icon"></span>
-                                </div>
+                            <div class="reaction"  key="${data.data._id}">
+                            <span><img class="like-reaction" src="../../assets/images/reaction/like-reaction.png" alt="icon">${data.data.reactions.like} </span>
+                            <span><img class="haha-reaction" src="../../assets/images/reaction/haha-reaction.png" alt="icon">${data.data.reactions.haha} </span>
+                            <span><img class="love-reaction" src="../../assets/images/reaction/love-reaction.png" alt="icon">${data.data.reactions.love} </span>
+                            <span><img class="angry-reaction" src="../../assets/images/reaction/angry-reaction.png" alt="icon">${data.data.reactions.angry} </span>
+                            <span><img class="wow-reaction" src="../../assets/images/reaction/wow-reaction.png" alt="icon">${data.data.reactions.wow} </span>
+                            <a href="#">
+                                <span> 1,9k</span>
+                            </a>
+                        </div>
                                 
                             </div>
                         </div>`)
@@ -150,6 +88,87 @@ $(document).ready(function () {
         $('#content-post').val('');
     })
 
+    //get post
+    $.ajax({
+        url: "http://localhost:3000/post",
+        type: 'GET',
+        contentType: 'application/json'
+    }).done(function (data) {
+        if (data.status === 'error') {
+            $('.alert').remove()
+            $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
+        } else {
+            console.log(data.data)
+            data.data.forEach(post => {
+                let i = 0;
+                $(".content").prepend(
+                    `<div class="content-main bg-7c mb-3 " key="${post._id}">`+
+                    `<div class="author">`+
+                                `<div class="author-main pb-2">`+
+                                    `<a href="#"><img src="../../assets/images/default-user-avatar.png" alt="" style="width:30px;"></a>`+
+                                    `<a class="ml-2"  href="#">`+
+                                        `<span>${post.author}</span>`+
+                                    `</a>`+
+                                `</div>`+
+                                `<div class="author-status">`+
+                                    `<span>${post.content}</span>`+
+                                `</div>`+
+                            `</div>`+
+                           
+                            `<div class="reaction-comment d-flex justify-content-between">`+
+                                `<div class="reaction"  key="${post._id}">`+
+                                    `<span><img class="like-reaction" src="../../assets/images/reaction/like-reaction.png" alt="icon">0 </span>`+
+                                    `<span><img class="haha-reaction" src="../../assets/images/reaction/haha-reaction.png" alt="icon">0</span>`+
+                                    `<span><img class="love-reaction" src="../../assets/images/reaction/love-reaction.png" alt="icon">0</span>`+
+                                    `<span><img class="angry-reaction" src="../../assets/images/reaction/angry-reaction.png" alt="icon">0</span>`+
+                                    `<span><img class="wow-reaction" src="../../assets/images/reaction/wow-reaction.png" alt="icon">0</span>`+
+                                    `<a href="#">`+
+                                        `<span> 1,9k</span>`+
+                                    `</a>`+
+                                `</div>`+
+                                `<div class="comment d-flex">`+
+                                    `<a class=" mr-2" href="#">26 bình luận</a>`+
+                                    `<a class=" mr-2" href="#">86 lượt chia sẻ</a>`+
+                                `</div>`+
+                            `</div>`+
+                            `<div class="d-flex justify-content-around btn-top-ac">`+
+                                `<div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-like"></i> thích</button></div>`+
+                                `<div class="btn-item"> <button class="btn btn-reaction postcomment" id=""> <i class="flaticon-comment-white-oval-bubble"></i> bình luận</button></div>`+
+                                `<div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-share"></i> chia sẻ</button></div>`+
+                            `</div>`+
+                            
+                            
+                            `<div class="post-comment-main">`+
+                            
+                                `<div class="comment-main mt-3 mb-3">`+
+                                `</div>`+
+                                `<div class=" row d-flex align-items-center post-comment-item">`+
+                                    `<div class="col-1">`+
+                                        `<img src="../../assets/images/default-user-avatar.png" alt="author-commet" class="rounded-circle" style="width:35px;">`+
+                                    `</div>`+
+                                    `<div class="col-9 post-main">`+
+                                        `<input type="text" class="form-control gPgfXu comment-post">`+
+                                    `</div>`+
+                                    `<div class="col-2 p-0">`+
+                                        `<button class="btn btn-success btn-comment">Đăng</button>`+
+                                    `</div>`+
+                                `</div>`+
+                            `</div>`+
+                        `</div>`
+                        )
+            });
+        }
+
+        // console.log(data.data)
+    })
+
+    // put reaction
+    $(".content").on("click", ".reaction .like-reaction", function (event) {
+        event.preventDefault();
+        let like = $(this).parents('.reaction').attr("key");
+        console.log('LIKE - ', like);
+
+    })
 
     //post comment
     $(".content").on("click", ".content-main .post-comment-main .post-comment-item .btn-comment", function (event) {
@@ -189,31 +208,32 @@ $(document).ready(function () {
         })
     })
 
-    $.ajax({
-        url: "http://localhost:3000/post",
-        type: 'GET',
-        contentType: 'application/json'
-    }).done(function (data) {
-        if (data.status === 'error') {
-            $('.alert').remove()
-            $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
-        } else {
-            console.log(data.data)
-            if (!data.data.comment) {
-                console.log('không có comment!!!');
-                return;
-            }else{
-                data.data.forEach(post => {
-                    $(".comment-main").prepend(`
-                            <div class="comment-item mb-2">
-                                <h5 class="comment-author">Minh Quy</h5>
-                                <p class="m-0"> ${data.data.comment}</p>
-                            </div>
-                            `)
-                });
-            } 
-        }
-
-        // console.log(data.data)
-    })
+    // $.ajax({
+    //     url: "http://localhost:3000/post",
+    //     type: 'GET',
+    //     contentType: 'application/json'
+    // })
+    //     .done(function (data) {
+    //         if (data.status === 'error') {
+    //             $('.alert').remove()
+    //             $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
+    //         } else {
+    //             // console.log(data)
+    //             if (data.data.comment == 0) {
+    //                 console.log('không có comment!!!');
+    //                 return;
+    //             } else {
+    //                 data.data.forEach(post => {
+    //                     let i = 0; 
+    //                     i++;
+    //                 $('.comment-main').prepend(`
+    //                         <div class="comment-item mb-2">
+    //                             <h5 class="comment-author">Minh Quy</h5>
+    //                             <p class="m-0"> ${post.comments[i].conntent}</p>
+    //                         </div>
+    //                         `)
+    //                 });
+    //             }
+    //         }
+    //     })
 })

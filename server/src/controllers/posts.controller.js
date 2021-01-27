@@ -30,7 +30,7 @@ module.exports.createPost = async (req, res) => {
         })
     }
 
-    const newPost = new Post({ ...req.body })
+    const newPost = new Post({ ...req.body, reaction:{like:0,haha:0,love:0,angry:0,wow:0} })
 
     newPost.save(function (err, doc) {
         if (err) {

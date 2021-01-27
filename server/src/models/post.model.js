@@ -6,9 +6,10 @@ const postSchema = new Schema({
     content: String,
     reaction: {
         like: Number,
-        dislike: Number,
-        smile: Number,
-        heart: Number
+        haha: Number,
+        love: Number,
+        angry: Number,
+        wow: Number
     },
     comments: Array
 },
