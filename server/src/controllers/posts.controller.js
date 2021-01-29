@@ -8,7 +8,7 @@ module.exports.createPostComment = async (req, res) => {
     if (type === 'comments') {
         const post = await Post.findOne({_id})
          post.comments.push({
-             conntent:data.comment
+             content:data.comment
          })
          post.save()
     }
@@ -30,7 +30,10 @@ module.exports.createPost = async (req, res) => {
         })
     }
 
-    const newPost = new Post({ ...req.body, reaction:{like:0,haha:0,love:0,angry:0,wow:0} })
+    const newPost = new Post({ ...req.body, 
+        reaction:{like:0,haha:0,love:0,angry:0,wow:0},
+        comments: []
+     })
 
     newPost.save(function (err, doc) {
         if (err) {

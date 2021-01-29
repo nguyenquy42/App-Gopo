@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const postSchema = new Schema({
@@ -6,12 +6,18 @@ const postSchema = new Schema({
     content: String,
     reaction: {
         like: Number,
-        haha: Number,
+        smile: Number,
         love: Number,
         angry: Number,
-        wow: Number
+        surprise: Number
     },
-    comments: Array
+    comments: [
+        {
+          author: String,
+          content: String
+        }
+      ],
+      created: { type: Date, default: Date.now }
 },
     {
         collection: 'Posts'
