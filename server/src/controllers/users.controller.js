@@ -10,17 +10,12 @@ module.exports.getUsers = async (req, res) => {
 }
 
 module.exports.getUserById = async (req, res) => {
-    const user = await User.findById(req.params.id)
-    if (user) {
-        return res.json({
-            isSuccess: true,
-            data: user,
-        })
+
+    const useremail = await User.findOne({ email })
+    if (useremail) {
+        return res.json({ isSuccess: true, data: useremail.email })
     }
-    return res.json({
-        isSuccess: false,
-        data: 'User does not exist yet',
-    })
+    
 }
 
 module.exports.createUser = async (req, res) => {
@@ -38,7 +33,7 @@ module.exports.createUser = async (req, res) => {
     if (user) {
         return res.json({
             isSuccess: false,
-            message: 'Email was registered',
+            message: 'Email đã được đăng ký',
         })
     }
 

@@ -63,7 +63,9 @@ module.exports.createPostComment = async (req, res) => {
     if (type === 'comments') {
         const post = await Post.findOne({ _id })
         post.comments.push({
-            content: data.comment
+            content: data.comment,
+            author: data.author
+
         })
         post.save()
     }

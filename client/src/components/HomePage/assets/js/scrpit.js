@@ -1,17 +1,36 @@
 
 $(document).ready(function () {
-    
+
     //checking
     function checking() {
         if (!localStorage.id) {
             console.log('không có tài khoản')
             window.location.replace('http://127.0.0.1:5500/client/src/components/404Page/index.html')
         } else {
-            console.log('đã có tài khoãn')
             $(".user-name").prepend(localStorage.id)
         }
     }
     checking()
+
+    // đăng suẩt
+    
+    $('.delteId').click(function () {
+        localStorage.clear();
+        window.location.replace('http://127.0.0.1:5500/client/src/components/LoginPage/index.html')
+    })
+    $.ajax({
+        url: "http://localhost:3000/users",
+        type: 'GET',
+        contentType: 'application/json'
+    }).done(function (data) {
+        if (data.isSuccess) {
+            // console.log(data)
+        } else {
+            console.log('khoong thaasy gi')
+        }
+
+    })
+
 
     // STATE
     let postData = null
@@ -81,7 +100,7 @@ $(document).ready(function () {
                                     ${post.comments.length > 0 ? post.comments.map(comment =>
                             `<div class="comment-item mb-3">
                                             <h5 class="comment-author">${comment.author}</h5>
-                                            <p class="m-0">${comment.content}</p>
+                                            <p class="m-0">${comment.content} ${comment.created}</p>
                                         </div>`
                         ).toString().replace(/,/g, '') : ''
                         }
@@ -110,7 +129,7 @@ $(document).ready(function () {
 
     // Create post
     $('.btn-post').click(function () {
-        let author = $('#sel1').val();
+        let author = localStorage.id;
         let content = $('#content-post').val()
         if (!author) {
             $('.alert').remove()
@@ -170,6 +189,8 @@ $(document).ready(function () {
         let idpost = $(this).parents('.content-main').attr("key");
         console.log('Comment - ', idpost);
         let idrea = '.comment-post' + idpost
+        let author = localStorage.id;
+        console.log(author)
         let comment = $(idrea).val()
 
         if (!comment) {
@@ -180,11 +201,16 @@ $(document).ready(function () {
         } else {
             console.log('có nhập văn bản');
         }
+
         $.ajax({
             url: `http://localhost:3000/post/${idpost}`,
             data: JSON.stringify({
                 type: "comments",
-                data: { comment }
+
+                data: { 
+                    comment,
+                    author },
+
             }),
             type: 'PUT',
             contentType: 'application/json'
