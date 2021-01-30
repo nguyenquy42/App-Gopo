@@ -1,5 +1,8 @@
 
 $(document).ready(function () {
+
+    // STATE
+    let postData = null
     
     //get post
     function getpost() { 
@@ -8,6 +11,7 @@ $(document).ready(function () {
             type: 'GET',
             contentType: 'application/json'
         }).done(function (data) {
+            postData = data.data
             if (data.status === 'error') {
                 $('.alert').remove()
                 $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
@@ -32,19 +36,19 @@ $(document).ready(function () {
                                 `<div class="reaction-comment d-flex justify-content-between">`+
                                     `<div class="reaction"  key="${post._id}">`+
                                         `<span>
-                                            <img class="like-reaction" src="../../assets/images/reaction/like-reaction.png" alt="icon">${post.reaction.like}
+                                            <img class="like-reaction" src="../../assets/images/reaction/like-reaction.png" alt="icon">  ${post.reaction.like}
                                         </span>`+
                                         `<span>
-                                            <img class="haha-reaction" src="../../assets/images/reaction/haha-reaction.png" alt="icon">${post.reaction.smile}
+                                            <img class="haha-reaction" src="../../assets/images/reaction/haha-reaction.png" alt="icon">  ${post.reaction.smile}
                                         </span>`+
                                         `<span>
-                                            <img class="love-reaction" src="../../assets/images/reaction/love-reaction.png" alt="icon">${post.reaction.love}
+                                            <img class="love-reaction" src="../../assets/images/reaction/love-reaction.png" alt="icon">  ${post.reaction.love}
                                         </span>`+
                                         `<span>
-                                            <img class="angry-reaction" src="../../assets/images/reaction/angry-reaction.png" alt="icon">${post.reaction.angry}
+                                            <img class="angry-reaction" src="../../assets/images/reaction/angry-reaction.png" alt="icon">  ${post.reaction.angry}
                                         </span>`+
                                         `<span>
-                                            <img class="wow-reaction" src="../../assets/images/reaction/wow-reaction.png" alt="icon">${post.reaction.surprise}
+                                            <img class="wow-reaction" src="../../assets/images/reaction/wow-reaction.png" alt="icon">  ${post.reaction.surprise}
                                         </span>`+
                                     `</div>`+
                                     `<div class="comment d-flex">`+
@@ -124,10 +128,9 @@ $(document).ready(function () {
                     location.reload();
             }
         })
-        $('#sel1').val('');
-        $('#content-post').val('');
+        // $('#sel1').val('');
+        // $('#content-post').val('');
     })
-    
 
     // get users
     $.ajax({
@@ -149,16 +152,6 @@ $(document).ready(function () {
         }
     })
 
-
-
-    // put reaction
-    $(".content").on("click", ".reaction .like-reaction", function (event) {
-        event.preventDefault();
-        let like = $(this).parents('.reaction').attr("key");
-        console.log('LIKE - ', like);
-
-    })
-
     //post comment
     $(".content").on("click", ".content-main .post-comment-main .post-comment-item .btn-comment", function (event) {
         event.preventDefault();
@@ -169,9 +162,12 @@ $(document).ready(function () {
         console.log(comment);
 
         if (!comment) {
+            console.log('reongos')
             $('.alert').remove()
             $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Content Invalid</div>')
             return
+        } else {
+            console.log('có nhập văn bản');
         }
         $.ajax({
             url: `http://localhost:3000/post/${idpost}`,
@@ -186,14 +182,42 @@ $(document).ready(function () {
                 $('.alert').remove()
                 $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">${data.message}</div>`)
             } else {
+                window.location.reload();
                 console.log(data)
-                $(".comment-main").prepend(`
-                        <div class="comment-item mb-2">
-                            <h5 class="comment-author">Minh Quy</h5>
-                            <p class="m-0"> ${data.data.comment}</p>
-                        </div>
-                        `)
             }
         })
     })
+
+    // put reaction Like
+    $(".content").on("click", ".reaction .like-reaction", function (event) {
+        event.preventDefault();
+        let postId = $(this).parents('.reaction').attr("key");
+        const postInfo = postData.find(post => post._id === postId)
+
+        if (!postInfo) {
+            $('.alert').remove()
+            $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Post Invalid</div>')
+            return
+        }
+        postInfo.reaction.like += 1
+
+        $.ajax({
+            url: `http://localhost:3000/put/${postId}`,
+            data: JSON.stringify({
+                ...postInfo
+            }),
+            type: 'PUT',
+            contentType: 'application/json'
+        }).done(function (data) {
+            // if (!data.isSuccess) {
+            //     $('.alert').remove()
+            //     $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">${data.message}</div>`)
+            // } else {
+            //     location.reload()
+            // }
+            console.log(data);
+        })
+
+    })
+
 })

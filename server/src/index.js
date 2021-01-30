@@ -24,6 +24,7 @@ mongoose.connect('mongodb://localhost:27017/social-network-app', (err) => {
 app.use("/users", usersRoute);
 app.use("/login", loginRoute);
 app.use("/post", postRoute);
+app.use("/put", postRoute);
 
 
 app.listen(port, () => {
