@@ -36,20 +36,20 @@ $(document).ready(function () {
                         `<div class="reaction-comment d-flex justify-content-between">` +
                         `<div class="reaction"  key="${post._id}">` +
                         `<span>
-                                            <img class="like-reaction" src="../../assets/images/reaction/like-reaction.png" alt="icon">  ${post.reaction.like}
-                                        </span>`+
+                            <img class="like-reaction" src="../../assets/images/reaction/like-reaction.png" alt="icon">  ${post.reaction.like}
+                        </span>`+
                         `<span>
-                                            <img class="haha-reaction" src="../../assets/images/reaction/haha-reaction.png" alt="icon">  ${post.reaction.smile}
-                                        </span>`+
+                            <img class="smile-reaction" src="../../assets/images/reaction/haha-reaction.png" alt="icon">  ${post.reaction.smile}
+                        </span>`+
                         `<span>
-                                            <img class="love-reaction" src="../../assets/images/reaction/love-reaction.png" alt="icon">  ${post.reaction.love}
-                                        </span>`+
+                            <img class="love-reaction" src="../../assets/images/reaction/love-reaction.png" alt="icon">  ${post.reaction.love}
+                        </span>`+
                         `<span>
-                                            <img class="angry-reaction" src="../../assets/images/reaction/angry-reaction.png" alt="icon">  ${post.reaction.angry}
-                                        </span>`+
+                            <img class="angry-reaction" src="../../assets/images/reaction/angry-reaction.png" alt="icon">  ${post.reaction.angry}
+                        </span>`+
                         `<span>
-                                            <img class="wow-reaction" src="../../assets/images/reaction/wow-reaction.png" alt="icon">  ${post.reaction.surprise}
-                                        </span>`+
+                            <img class="surprise-reaction" src="../../assets/images/reaction/wow-reaction.png" alt="icon">  ${post.reaction.surprise}
+                        </span>`+
                         `</div>` +
                         `<div class="comment d-flex">` +
                         `<a class=" mr-2" href="#">26 bình luận</a>` +
@@ -217,5 +217,36 @@ $(document).ready(function () {
             }
         })
     })
+
+    // Put reaction smile
+    $(".content").on("click", ".reaction .smile-reaction", function (event) {
+        event.preventDefault();
+        let postId = $(this).parents('.reaction').attr("key");
+        const postInfo = postData.find(post => post._id === postId)
+
+        if (!postInfo) {
+            $('alert').remove()
+            $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Post Invalid</div>')
+            return
+        }
+        postInfo.reaction.smile += 1
+        console.log(postInfo)
+        $.ajax({
+            url: `http://localhost:3000/put/reaction/${postId}`,
+            data: JSON.stringify({
+                ...postInfo
+            }),
+            type: 'PUT',
+            contentType: 'application/json'
+        }).done(function (data) {
+            if (!data.isSuccess) {
+                $('.alert').remove()
+                $('.container-fluid').prepend('<div class="alert alert-danger" role="alert">Gặp lỗi logic, hệ thống sẻ chỉnh sửa, vui lòng tha thứ cho chúng tôi</div>')
+            } else {
+                location.reload();
+            }
+        })
+    })
+
 
 })
