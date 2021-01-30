@@ -1,5 +1,17 @@
 
 $(document).ready(function () {
+    
+    //checking
+    function checking() {
+        if (!localStorage.id) {
+            console.log('không có tài khoản')
+            window.location.replace('http://127.0.0.1:5500/client/src/components/404Page/index.html')
+        } else {
+            console.log('đã có tài khoãn')
+            $(".user-name").prepend(localStorage.id)
+        }
+    }
+    checking()
 
     // STATE
     let postData = null
@@ -79,7 +91,7 @@ $(document).ready(function () {
                         `<img src="../../assets/images/default-user-avatar.png" alt="author-commet" class="rounded-circle" style="width:35px;">` +
                         `</div>` +
                         `<div class="col-9 post-main">` +
-                        `<input type="text" class="form-control gPgfXu comment-post">` +
+                        `<input type="text" class="form-control gPgfXu comment-post${post._id}">` +
                         `</div>` +
                         `<div class="col-2 p-0">` +
                         `<button class="btn btn-success btn-comment">Đăng</button>` +
@@ -157,9 +169,8 @@ $(document).ready(function () {
         event.preventDefault();
         let idpost = $(this).parents('.content-main').attr("key");
         console.log('Comment - ', idpost);
-
-        let comment = $('.comment-post').val()
-        console.log(comment);
+        let idrea = '.comment-post' + idpost
+        let comment = $(idrea).val()
 
         if (!comment) {
             console.log('reongos')
@@ -230,6 +241,35 @@ $(document).ready(function () {
             return
         }
         postInfo.reaction.smile += 1
+        $.ajax({
+            url: `http://localhost:3000/put/reaction/${postId}`,
+            data: JSON.stringify({
+                ...postInfo
+            }),
+            type: 'PUT',
+            contentType: 'application/json'
+        }).done(function (data) {
+            if (!data.isSuccess) {
+                $('.alert').remove()
+                $('.container-fluid').prepend('<div class="alert alert-danger" role="alert">Gặp lỗi logic, hệ thống sẻ chỉnh sửa, vui lòng tha thứ cho chúng tôi</div>')
+            } else {
+                location.reload();
+            }
+        })
+    })
+
+    // Put reaction love
+    $(".content").on("click", ".reaction .love-reaction", function (event) {
+        event.preventDefault();
+        let postId = $(this).parents('.reaction').attr("key");
+        const postInfo = postData.find(post => post._id === postId)
+
+        if (!postInfo) {
+            $('alert').remove()
+            $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Post Invalid</div>')
+            return
+        }
+        postInfo.reaction.love += 1
         console.log(postInfo)
         $.ajax({
             url: `http://localhost:3000/put/reaction/${postId}`,
@@ -248,5 +288,64 @@ $(document).ready(function () {
         })
     })
 
+    // Put reaction angry
+    $(".content").on("click", ".reaction .angry-reaction", function (event) {
+        event.preventDefault();
+        let postId = $(this).parents('.reaction').attr("key");
+        const postInfo = postData.find(post => post._id === postId)
+
+        if (!postInfo) {
+            $('alert').remove()
+            $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Post Invalid</div>')
+            return
+        }
+        postInfo.reaction.angry += 1
+        console.log(postInfo)
+        $.ajax({
+            url: `http://localhost:3000/put/reaction/${postId}`,
+            data: JSON.stringify({
+                ...postInfo
+            }),
+            type: 'PUT',
+            contentType: 'application/json'
+        }).done(function (data) {
+            if (!data.isSuccess) {
+                $('.alert').remove()
+                $('.container-fluid').prepend('<div class="alert alert-danger" role="alert">Gặp lỗi logic, hệ thống sẻ chỉnh sửa, vui lòng tha thứ cho chúng tôi</div>')
+            } else {
+                location.reload();
+            }
+        })
+    })
+
+    // Put reaction surprise
+    $(".content").on("click", ".reaction .surprise-reaction", function (event) {
+        event.preventDefault();
+        let postId = $(this).parents('.reaction').attr("key");
+        const postInfo = postData.find(post => post._id === postId)
+
+        if (!postInfo) {
+            $('alert').remove()
+            $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Post Invalid</div>')
+            return
+        }
+        postInfo.reaction.surprise += 1
+        console.log(postInfo)
+        $.ajax({
+            url: `http://localhost:3000/put/reaction/${postId}`,
+            data: JSON.stringify({
+                ...postInfo
+            }),
+            type: 'PUT',
+            contentType: 'application/json'
+        }).done(function (data) {
+            if (!data.isSuccess) {
+                $('.alert').remove()
+                $('.container-fluid').prepend('<div class="alert alert-danger" role="alert">Gặp lỗi logic, hệ thống sẻ chỉnh sửa, vui lòng tha thứ cho chúng tôi</div>')
+            } else {
+                location.reload();
+            }
+        })
+    })
 
 })

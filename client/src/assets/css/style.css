@@ -231,25 +231,25 @@
     }
 
     .svg-icon.icon-feed-colorful {
-        background-image: url(../../../../assets/images/explore.svg);
+        background-image: url(../../assets/images/explore.svg);
         width: 1.75rem;
         height: 1.75rem;
     }
 
     .svg-icon.icon-explore {
-        background-image: url(../../../../assets/images/follow-feed.svg);
+        background-image: url(../../assets/images/follow-feed.svg);
         width: 1.75rem;
         height: 1.75rem;
     }
 
     .svg-icon.icon-search-colorful {
-        background-image: url(../../../../assets/images/search-colorful.svg);
+        background-image: url(../../assets/images/search-colorful.svg);
         width: 1.75rem;
         height: 1.75rem;
     }
 
     .svg-icon.icon-flag-page {
-        background-image: url(../../../../assets/images/flag-page.svg);
+        background-image: url(../../assets/images/flag-page.svg);
         width: 1.75rem;
         height: 1.75rem;
     }
@@ -292,4 +292,8 @@
         padding: 7px;
         margin: 0 30px;
         border-radius: 5px;
+    }
+
+    div#collapsibleNavbar {
+        min-height: calc(96vh - 3.5rem);
     }
