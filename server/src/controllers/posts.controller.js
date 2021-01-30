@@ -3,44 +3,36 @@ const Post = require('../models/post.model')
 
 module.exports.createPostComment = async (req, res) => {
 
-    const {type, data} = req.body;
+    const { type, data } = req.body;
     const _id = req.params
 
     if (type === 'comments') {
-        const post = await Post.findOne({_id})
-         post.comments.push({
-             content:data.comment
-         })
-         post.save()
+        const post = await Post.findOne({ _id })
+        post.comments.push({
+            content: data.comment
+        })
+        post.save()
     }
-    res.json({ isSuccess: true})
+    res.json({ isSuccess: true })
 }
 
 module.exports.createPostReaction = async (req, res) => {
-    // const { post, postId} = req.body;
+    const { postUpdate } = req.body; //
 
- 
+    const post = Post.where({ _id: req.body._id })
+    post.update({ $set: { reaction: req.body.reaction } }).exec()
+    return res.json({ isSuccess: true, data: req.body })
+    // Post.findByIdAndUpdate(req.params.id, req.body, function (err, doc) {
+    //     if (err) {
+    //         return res.json({
+    //             isSuccess: false,
+    //             message: 'Error in updating reaction',
+    //         })
+    //     }
 
-    // if (!post) {
-    //     return res.json({
-    //         isSuccess: false,
-    //         message: 'Missing required fields',
-    //     })
-    // }
+    //     return res.json({ isSuccess: true, data: req.body._id });
+    // })
 
-    //     const id = Post.where({_id: postId})
-    //     id.update({ $set: { reaction: post.reaction}}).exec()
-    //     return res.json({ isSuccess: true, data: post.reaction})
-    Post.findByIdAndUpdate(req.params.id, req.body, function(err, doc){
-        if (err) {
-          return res.json({
-            isSuccess: false,
-            message: 'Error in updating person with id',
-          })
-        }
-        return res.json({isSuccess: true, data: "ssss"});
-     })
-        
 }
 
 module.exports.getPost = async (req, res) => {
@@ -60,13 +52,13 @@ module.exports.createPost = async (req, res) => {
     }
 
     const newPost = new Post({
-        ...req.body, 
-        reaction:{
-            like:0,
-            smile:0,
-            love:0,
-            angry:0,
-            surprise:0
+        ...req.body,
+        reaction: {
+            like: 0,
+            smile: 0,
+            love: 0,
+            angry: 0,
+            surprise: 0
         },
         comments: []
     })

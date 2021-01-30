@@ -3,9 +3,9 @@ $(document).ready(function () {
 
     // STATE
     let postData = null
-    
+
     //get post
-    function getpost() { 
+    function getpost() {
         $.ajax({
             url: "http://localhost:3000/post",
             type: 'GET',
@@ -20,77 +20,77 @@ $(document).ready(function () {
                 data.data.forEach(post => {
                     let i = 0;
                     $(".content").prepend(
-                        `<div class="content-main bg-7c mb-3 " key="${post._id}">`+
-                        `<div class="author">`+
-                                    `<div class="author-main pb-2">`+
-                                        `<a href="#"><img src="../../assets/images/default-user-avatar.png" alt="" style="width:30px;"></a>`+
-                                        `<a class="ml-2"  href="#">`+
-                                            `<span>${post.author}</span>`+
-                                        `</a>`+
-                                    `</div>`+
-                                    `<div class="author-status">`+
-                                        `<span>${post.content}</span>`+
-                                    `</div>`+
-                                `</div>`+
-                               
-                                `<div class="reaction-comment d-flex justify-content-between">`+
-                                    `<div class="reaction"  key="${post._id}">`+
-                                        `<span>
+                        `<div class="content-main bg-7c mb-3 " key="${post._id}">` +
+                        `<div class="author">` +
+                        `<div class="author-main pb-2">` +
+                        `<a href="#"><img src="../../assets/images/default-user-avatar.png" alt="" style="width:30px;"></a>` +
+                        `<a class="ml-2"  href="#">` +
+                        `<span>${post.author}</span>` +
+                        `</a>` +
+                        `</div>` +
+                        `<div class="author-status">` +
+                        `<span>${post.content}</span>` +
+                        `</div>` +
+                        `</div>` +
+
+                        `<div class="reaction-comment d-flex justify-content-between">` +
+                        `<div class="reaction"  key="${post._id}">` +
+                        `<span>
                                             <img class="like-reaction" src="../../assets/images/reaction/like-reaction.png" alt="icon">  ${post.reaction.like}
                                         </span>`+
-                                        `<span>
+                        `<span>
                                             <img class="haha-reaction" src="../../assets/images/reaction/haha-reaction.png" alt="icon">  ${post.reaction.smile}
                                         </span>`+
-                                        `<span>
+                        `<span>
                                             <img class="love-reaction" src="../../assets/images/reaction/love-reaction.png" alt="icon">  ${post.reaction.love}
                                         </span>`+
-                                        `<span>
+                        `<span>
                                             <img class="angry-reaction" src="../../assets/images/reaction/angry-reaction.png" alt="icon">  ${post.reaction.angry}
                                         </span>`+
-                                        `<span>
+                        `<span>
                                             <img class="wow-reaction" src="../../assets/images/reaction/wow-reaction.png" alt="icon">  ${post.reaction.surprise}
                                         </span>`+
-                                    `</div>`+
-                                    `<div class="comment d-flex">`+
-                                        `<a class=" mr-2" href="#">26 bình luận</a>`+
-                                        `<a class=" mr-2" href="#">86 lượt chia sẻ</a>`+
-                                    `</div>`+
-                                `</div>`+
-                                `<div class="d-flex justify-content-around btn-top-ac">`+
-                                    `<div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-like"></i> thích</button></div>`+
-                                    `<div class="btn-item"> <button class="btn btn-reaction postcomment" id=""> <i class="flaticon-comment-white-oval-bubble"></i> bình luận</button></div>`+
-                                    `<div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-share"></i> chia sẻ</button></div>`+
-                                `</div>`+
-                                
-                                
-                                `<div class="post-comment-main">`+
-                                
-                                    `<div class="comment-main mt-3 mb-3">
+                        `</div>` +
+                        `<div class="comment d-flex">` +
+                        `<a class=" mr-2" href="#">26 bình luận</a>` +
+                        `<a class=" mr-2" href="#">86 lượt chia sẻ</a>` +
+                        `</div>` +
+                        `</div>` +
+                        `<div class="d-flex justify-content-around btn-top-ac">` +
+                        `<div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-like"></i> thích</button></div>` +
+                        `<div class="btn-item"> <button class="btn btn-reaction postcomment" id=""> <i class="flaticon-comment-white-oval-bubble"></i> bình luận</button></div>` +
+                        `<div class="btn-item"> <button class="btn btn-reaction"> <i class="flaticon-share"></i> chia sẻ</button></div>` +
+                        `</div>` +
+
+
+                        `<div class="post-comment-main">` +
+
+                        `<div class="comment-main mt-3 mb-3">
                                     ${post.comments.length > 0 ? post.comments.map(comment =>
-                                        `<div class="comment-item mb-3">
+                            `<div class="comment-item mb-3">
                                             <h5 class="comment-author">${comment.author}</h5>
                                             <p class="m-0">${comment.content}</p>
                                         </div>`
-                                        ).toString().replace(/,/g, '') : ''
-                                        }
+                        ).toString().replace(/,/g, '') : ''
+                        }
                                     </div>`+
-                                    `<div class=" row d-flex align-items-center post-comment-item">`+
-                                        `<div class="col-1">`+
-                                            `<img src="../../assets/images/default-user-avatar.png" alt="author-commet" class="rounded-circle" style="width:35px;">`+
-                                        `</div>`+
-                                        `<div class="col-9 post-main">`+
-                                            `<input type="text" class="form-control gPgfXu comment-post">`+
-                                        `</div>`+
-                                        `<div class="col-2 p-0">`+
-                                            `<button class="btn btn-success btn-comment">Đăng</button>`+
-                                        `</div>`+
-                                    `</div>`+
-                                `</div>`+
-                            `</div>`
-                            )
+                        `<div class=" row d-flex align-items-center post-comment-item">` +
+                        `<div class="col-1">` +
+                        `<img src="../../assets/images/default-user-avatar.png" alt="author-commet" class="rounded-circle" style="width:35px;">` +
+                        `</div>` +
+                        `<div class="col-9 post-main">` +
+                        `<input type="text" class="form-control gPgfXu comment-post">` +
+                        `</div>` +
+                        `<div class="col-2 p-0">` +
+                        `<button class="btn btn-success btn-comment">Đăng</button>` +
+                        `</div>` +
+                        `</div>` +
+                        `</div>` +
+                        `</div>`
+                    )
                 });
             }
-    
+
             // console.log(data.data)
         })
     }
@@ -125,7 +125,7 @@ $(document).ready(function () {
                 $('.alert').remove()
                 $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">${data.message}</div>`)
             } else {
-                    location.reload();
+                location.reload();
             }
         })
         // $('#sel1').val('');
@@ -200,22 +200,22 @@ $(document).ready(function () {
             return
         }
         postInfo.reaction.like += 1
-
+        console.log(postInfo)
         $.ajax({
-            url: `http://localhost:3000/put/${postId}`,
+            url: `http://localhost:3000/put/reaction/${postId}`,
             data: JSON.stringify({
                 ...postInfo
             }),
             type: 'PUT',
             contentType: 'application/json'
         }).done(function (data) {
-            // if (!data.isSuccess) {
-            //     $('.alert').remove()
-            //     $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">${data.message}</div>`)
-            // } else {
-            //     location.reload()
-            // }
-            console.log(data);
+            if (!data.isSuccess) {
+                $('.alert').remove()
+                $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">${data.message}</div>`)
+            } else {
+                location.reload()
+            }
+            // console.log(data);
         })
 
     })
