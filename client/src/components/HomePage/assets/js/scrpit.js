@@ -200,7 +200,11 @@ $(document).ready(function () {
             return
         }
         postInfo.reaction.like += 1
+<<<<<<< HEAD
         console.log(postInfo)
+=======
+        console.log(postInfo);
+>>>>>>> 67332aa121da2a56a9d8a32a847bcb92f7264622
         $.ajax({
             url: `http://localhost:3000/put/reaction/${postId}`,
             data: JSON.stringify({
