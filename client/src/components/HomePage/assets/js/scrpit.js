@@ -200,7 +200,7 @@ $(document).ready(function () {
             return
         }
         postInfo.reaction.like += 1
-
+        console.log(postInfo);
         $.ajax({
             url: `http://localhost:3000/put/${postId}`,
             data: JSON.stringify({
