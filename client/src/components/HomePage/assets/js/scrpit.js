@@ -100,7 +100,7 @@ $(document).ready(function () {
                                     ${post.comments.length > 0 ? post.comments.map(comment =>
                             `<div class="comment-item mb-3">
                                             <h5 class="comment-author">${comment.author}</h5>
-                                            <p class="m-0">${comment.content} ${comment.created}</p>
+                                            <p class="m-0">${comment.content}</p>
                                         </div>`
                         ).toString().replace(/,/g, '') : ''
                         }
