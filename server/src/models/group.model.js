@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const { Schema } = mongoose;
 
 const userSchema = new Schema({
-    name: String,
+    groupname: String,
     post: {
         author: String,
         content: String,
@@ -23,7 +23,7 @@ const userSchema = new Schema({
     }
 },
     {
-        collection: 'Group'
+        collection: 'Groups'
     });
 
-module.exports = mongoose.model('User', userSchema)
+module.exports = mongoose.model('Groups', userSchema)

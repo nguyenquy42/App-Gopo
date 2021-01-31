@@ -345,6 +345,10 @@
         border-radius: 12px;
     }
 
+    .group-item-name {
+        list-style-type: none;
+    }
+
     /* css group end */
 
     /* css group featured start */
@@ -510,3 +514,21 @@
         }
 
     /* css user-group end */
+
+    /* css suggest start */
+
+    .item-r.active {
+        background-color: #eee;
+    }
+    
+    .item-r:hover {
+        background-color: #f5f5f5;
+    }
+
+    .suggest-btn {
+        background-color: #5ea339;
+        font-weight: 500;
+        color: #fff;
+    }
+
+    /* css suggest end */
