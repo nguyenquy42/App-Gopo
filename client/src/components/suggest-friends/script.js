@@ -31,18 +31,23 @@ $(document).ready(function () {
         } else {
             console.log(data.data)
             data.data.forEach(post => {
-                $(".list-users").prepend(
+                $(".featured-body").prepend(
                     `
-                    <li>${post.lastName} ${post.firstName}</li>
+                    <div class="col-lg-4 mb-3">
+                        <div class="featured-main bg-white">
+                            <div class="featured-main-img">
+                                <img class="featured-img" src="../../assets/images/default-user-avatar.png" alt="">
+                            </div>
+                            <div class="featured-main-content">
+                                <h5>${post.lastName} ${post.firstName}</h5>
+                                <p>0 người theo dõi</p>
+                                <button class="text-center w-100 btn suggest-btn">kết bạn</button>
+                            </div>
+                        </div>
+                    </div>
                     `
                 )
             });
-            // data.data.forEach(post => {
-            //     if(post.email === localStorage.id){
-            //         localStorage.setItem("user", post.lastName+'    '+post.firstName)
-            //         localStorage.setItem("idUser", post._id)
-            //     }
-            // });
         }
     })
 })
