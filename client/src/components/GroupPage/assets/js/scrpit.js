@@ -1,33 +1,22 @@
-jQuery('img.svg').each(function(){
-    var $img = jQuery(this);
-    var imgID = $img.attr('id');
-    var imgClass = $img.attr('class');
-    var imgURL = $img.attr('src');
 
-    jQuery.get(imgURL, function(data) {
-        // Get the SVG tag, ignore the rest
-        var $svg = jQuery(data).find('svg');
+$(document).ready(function () {
 
-        // Add replaced image's ID to the new SVG
-        if(typeof imgID !== 'undefined') {
-            $svg = $svg.attr('id', imgID);
+    //checking
+    function checking() {
+        if (!localStorage.id) {
+            console.log('không có tài khoản')
+            window.location.replace('http://127.0.0.1:5500/client/src/components/404Page/index.html')
+        } else {
+            $(".user-name").prepend(localStorage.user)
         }
-        // Add replaced image's classes to the new SVG
-        if(typeof imgClass !== 'undefined') {
-            $svg = $svg.attr('class', imgClass+' replaced-svg');
-        }
+    }
+    checking()
 
-        // Remove any invalid XML tags as per http://validator.w3.org
-        $svg = $svg.removeAttr('xmlns:a');
+    // đăng suẩt
+    
+    $('.delteId').click(function () {
+        localStorage.clear();
+        window.location.replace('http://127.0.0.1:5500/client/src/components/LoginPage/index.html')
+    })
 
-        // Check if the viewport is set, if the viewport is not set the SVG wont't scale.
-        if(!$svg.attr('viewBox') && $svg.attr('height') && $svg.attr('width')) {
-            $svg.attr('viewBox', '0 0 ' + $svg.attr('height') + ' ' + $svg.attr('width'))
-        }
-
-        // Replace image with new SVG
-        $img.replaceWith($svg);
-
-    }, 'xml');
-
-});
+})

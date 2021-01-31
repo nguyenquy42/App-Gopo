@@ -18,6 +18,26 @@ $(document).ready(function () {
       $('.container-fluid').prepend('<div class="alert alert-warning" role="alert">Password không hợp lệ</div>')
       return
     }
+    
+  $.ajax({
+    url: "http://localhost:3000/users",
+    type: 'GET',
+    contentType: 'application/json'
+  }).done(function (data) {
+    postData = data.data
+    if (data.status === 'error') {
+      $('.alert').remove()
+      $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
+    } else {
+      data.data.forEach(post => {
+        console.log(post)
+        if (post.email === email) {
+          localStorage.setItem("user", post.lastName + '    ' + post.firstName)
+          localStorage.setItem("idUser", post._id)
+        }
+      });
+    }
+  })
 
     $.ajax(
       {

@@ -7,28 +7,43 @@ $(document).ready(function () {
             console.log('không có tài khoản')
             window.location.replace('http://127.0.0.1:5500/client/src/components/404Page/index.html')
         } else {
-            $(".user-name").prepend(localStorage.id)
+            $(".user-name").prepend(localStorage.user)
+            console.log(localStorage.user)
         }
     }
     checking()
 
     // đăng suẩt
-    
     $('.delteId').click(function () {
         localStorage.clear();
         window.location.replace('http://127.0.0.1:5500/client/src/components/LoginPage/index.html')
     })
+
     $.ajax({
         url: "http://localhost:3000/users",
         type: 'GET',
         contentType: 'application/json'
     }).done(function (data) {
-        if (data.isSuccess) {
-            // console.log(data)
+        postData = data.data
+        if (data.status === 'error') {
+            $('.alert').remove()
+            $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
         } else {
-            console.log('khoong thaasy gi')
+            console.log(data.data)
+            data.data.forEach(post => {
+                $(".list-users").prepend(
+                    `
+                    <li>${post.lastName} ${post.firstName}</li>
+                    `
+                )
+            });
+            // data.data.forEach(post => {
+            //     if(post.email === localStorage.id){
+            //         localStorage.setItem("user", post.lastName+'    '+post.firstName)
+            //         localStorage.setItem("idUser", post._id)
+            //     }
+            // });
         }
-
     })
 
 
@@ -49,7 +64,6 @@ $(document).ready(function () {
             } else {
                 // console.log(data.data)
                 data.data.forEach(post => {
-                    let i = 0;
                     $(".content").prepend(
                         `<div class="content-main bg-7c mb-3 " key="${post._id}">` +
                         `<div class="author">` +
@@ -83,8 +97,8 @@ $(document).ready(function () {
                         </span>`+
                         `</div>` +
                         `<div class="comment d-flex">` +
-                        `<a class=" mr-2" href="#">26 bình luận</a>` +
-                        `<a class=" mr-2" href="#">86 lượt chia sẻ</a>` +
+                        `<a class=" mr-2" href="#">${post.comments.length} bình luận</a>` +
+                        `<a class=" mr-2" href="#">0 lượt chia sẻ</a>` +
                         `</div>` +
                         `</div>` +
                         `<div class="d-flex justify-content-around btn-top-ac">` +
@@ -129,7 +143,7 @@ $(document).ready(function () {
 
     // Create post
     $('.btn-post').click(function () {
-        let author = localStorage.id;
+        let author = localStorage.user;
         let content = $('#content-post').val()
         if (!author) {
             $('.alert').remove()
@@ -189,7 +203,7 @@ $(document).ready(function () {
         let idpost = $(this).parents('.content-main').attr("key");
         console.log('Comment - ', idpost);
         let idrea = '.comment-post' + idpost
-        let author = localStorage.id;
+        let author = localStorage.user;
         console.log(author)
         let comment = $(idrea).val()
 

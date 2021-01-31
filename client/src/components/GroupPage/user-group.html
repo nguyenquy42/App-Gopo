@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Page</title>
+    <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/flaticon.css">
+    <link rel="stylesheet" href="../../assets/css/responsive.css">
+</head>
+
+<body class="">
+    <div class="body-main-content container-fluid h-100">
+        <header>
+            <nav
+                class="menu-top navbar navbar-expand-md bg-7c navbar-dark d-flex justify-content-between row nav-top-menu">
+                <div class="menu-top-left d-flex">
+                    <a class="navbar-brand" href="#"><img src="../../assets/images/logo-chat.png" alt=""></a>
+                    <form class="form-inline" action="/action_page.php">
+                        <input class="form-control mr-sm-2 inp-search" type="text" placeholder="Tìm kiếm">
+                    </form>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="button-menu-nav">
+                    <ul class="list-top-menu">
+                        <li class="item-top-menu text-center"><a href="../HomePage/index.html"><img
+                                    src="assets/img/nav/home-active.svg" alt=""></a></li>
+                        <li class="item-top-menu text-center"><a href="#"><img src="assets/img/nav/news-default.svg"
+                                    alt=""></a>
+                        </li>
+                        <li class="item-top-menu text-center  active"><a href="#"><img
+                                    src="assets/img/nav/group-default.svg" alt=""></a>
+                        </li>
+                        <li class="item-top-menu text-center"><a href="#"><img src="assets/img/nav/video-default.svg"
+                                    alt=""></a></li>
+                        <li class="item-top-menu text-center"><a href="#"><img src="assets/img/nav/chat-default.svg"
+                                    alt=""></a></li>
+                    </ul>
+                </div>
+                <div class="top-menu-right d-none d-md-block">
+                    <ul class="list-tr-menu">
+                        <li class="item-top-menu-right mr-3"><a href="#"><i class="fa fa-user" aria-hidden="true"></i>
+                            </a>
+                        </li>
+                        <li class="item-top-menu-right mr-3"><a href="#"><i class="fa fa-bell"
+                                    aria-hidden="true"></i></a>
+                        </li>
+                        <li class="item-top-menu-right nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                                <img src="../../assets/images/default-user-avatar.png" alt=""
+                                    style="width:20%; border-radius: 50%;"> <span class="user-name">
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item delteId" href="#">Thoát</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <div class="row">
+            <div class="col-md-4 col-lg-3 bg-white">
+                <nav class="navbar navbar-expand-md menu-left d-block">
+                    <div class="collapse d-block" id="collapsibleNavbar">
+                        <div class="iGsoAN">
+                            <img src="../../components/GroupPage/assets/img/banner.jpg" alt="">
+                        </div>
+                        <h4 class="mt-1">camera</h4>
+                        <div class="group-item-content">
+                            <ul class="group-item-content-list p-0">
+                                <li class="list-item">Nhóm riêng tư</li>
+                                <li class="list-item">1 thành viên</li>
+                                <li class="list-item">0 bài viết</li>
+                            </ul>
+                        </div>
+                        <hr>
+                        <ul class="list-intro p-0">
+                            <li class="iycMjp "><a class="active" href="#"> bài viết</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-4 col-lg-9 ">
+                <div class="body-main">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-12 bg-white">
+                                <div class="gruop mt-4">
+                                    <div class="group-banner mb-5"></div>
+                                    <div class="group-item d-flex justify-content-between">
+                                        <div class="group-item-title">
+                                            <h3>Camera</h3>
+                                            <div class="group-item-content">
+                                                <ul class="group-item-content-list p-0">
+                                                    <li class="list-item">Nhóm riêng tư</li>
+                                                    <li class="list-item">1 thành viên</li>
+                                                    <li class="list-item">0 bài viết</li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="group-item-add-frend d-flex align-items-center">
+                                            <a class="btn-invite" href="#">Mời bạn</a>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-4">
+                            <div class="col-lg-8 pl-0">
+                                <div class="gapo-box d-flex">
+                                    <div class=" col-1 p-0">
+                                        <a href="#"><img src="../../assets/images/default-user-avatar.png" alt=""
+                                                style="width:100%;"></a>
+                                    </div>
+                                    <div class="col-11 form-group ">
+                                        <button type="button" class="form-control btn-primary-light" data-toggle="modal"
+                                            data-target="#myModal">Đăng bài viết</button>
+                                    </div>
+                                    <!-- The Modal -->
+                                    <div class="modal" id="myModal">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+
+                                                <!-- Modal Header -->
+                                                <div class="modal-header text-center">
+                                                    <h4 class="modal-title">Tạo bài viết</h4>
+                                                    <button type="button" class="close"
+                                                        data-dismiss="modal">&times;</button>
+                                                </div>
+
+                                                <!-- Modal body -->
+                                                <div class="modal-body">
+                                                    <!-- <label for="">tiêu đề</label>
+                                                    <input class="form-control" type="text" id="title-post"> -->
+                                                    <label for="">Nội Dung</label>
+                                                    <textarea class="form-control" name="" id="content-post" cols="15"
+                                                        rows="10" placeholder="bạn muốn chia sẻ điều gì?"></textarea>
+                                                    <div class="text-center mt-5">
+                                                        <button class="btn btn-success btn-post w-100">Chia sẻ</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="post-item">
+                                    <div class="content-main bg-7c mb-3 " key="${post._id}">
+                                        <div class="author">
+                                            <div class="author-main pb-2">
+                                                <a href="#"><img src="../../assets/images/default-user-avatar.png"
+                                                        alt="" style="width:30px;"></a>
+                                                <a class="ml-2" href="#">
+                                                    <span>min quy</span>
+                                                </a>
+                                            </div>
+                                            <div class="author-status">
+                                                <span>kakkakakak hihihihi</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="reaction-comment d-flex justify-content-between">
+                                            <div class="reaction" key="${post._id}">
+                                                <span>
+                                                    <img class="like-reaction"
+                                                        src="../../assets/images/reaction/like-reaction.png" alt="icon">
+                                                    1
+                                                </span>
+                                                <span>
+                                                    <img class="smile-reaction"
+                                                        src="../../assets/images/reaction/haha-reaction.png" alt="icon">
+                                                    1
+                                                </span>
+                                                <span>
+                                                    <img class="love-reaction"
+                                                        src="../../assets/images/reaction/love-reaction.png" alt="icon">
+                                                    2
+                                                </span>
+                                                <span>
+                                                    <img class="angry-reaction"
+                                                        src="../../assets/images/reaction/angry-reaction.png"
+                                                        alt="icon"> 2
+                                                </span>
+                                                <span>
+                                                    <img class="surprise-reaction"
+                                                        src="../../assets/images/reaction/wow-reaction.png" alt="icon">
+                                                    2
+                                                </span>
+                                            </div>
+                                            <div class="comment d-flex">
+                                                <a class=" mr-2" href="#">2 bình luận</a>
+                                                <a class=" mr-2" href="#">0 lượt chia sẻ</a>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex justify-content-around btn-top-ac">
+                                            <div class="btn-item"> <button class="btn btn-reaction"> <i
+                                                        class="flaticon-like"></i> thích</button></div>
+                                            <div class="btn-item"> <button class="btn btn-reaction postcomment" id="">
+                                                    <i class="flaticon-comment-white-oval-bubble"></i> bình
+                                                    luận</button></div>
+                                            <div class="btn-item"> <button class="btn btn-reaction"> <i
+                                                        class="flaticon-share"></i> chia sẻ</button></div>
+                                        </div>
+
+
+                                        <div class="post-comment-main">
+
+                                            <div class="comment-main mt-3 mb-3">
+                                                <div class="comment-item mb-3">
+                                                    <h5 class="comment-author">quý</h5>
+                                                    <p class="m-0">non</p>
+                                                </div>
+                                            </div>
+                                            <div class=" row d-flex align-items-center post-comment-item">
+                                                <div class="col-1">
+                                                    <img src="../../assets/images/default-user-avatar.png"
+                                                        alt="author-commet" class="rounded-circle" style="width:35px;">
+                                                </div>
+                                                <div class="col-9 post-main">
+                                                    <input type="text"
+                                                        class="form-control gPgfXu comment-post${post._id} comment__form">
+                                                </div>
+                                                <div class="col-2 p-0">
+                                                    <button class="btn btn-success btn-comment">Đăng</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="about-group bg-white">
+                                    <h5><img src="../GroupPage/assets/img/icon-edit.svg" alt=""> Giới thiệu</h5>
+                                    <p>nhóm chuyên về nhiếp ảnh</p>
+                                    <hr>
+                                    <p>Nhóm lập nhóm - <span>30-01-2021</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Import depedencies -->
+    <script src="../../libs/jquery/jquery-3.5.1.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/scrpit.js"></script>
+
+</body>
+
+</html>
