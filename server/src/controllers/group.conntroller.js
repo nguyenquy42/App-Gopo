@@ -19,7 +19,7 @@ module.exports.createGroup = async (req, res) => {
         })
     }
 
-    const newGroup = new Post({
+    const newGroup = new Groups({
         ...req.body
     })
 
