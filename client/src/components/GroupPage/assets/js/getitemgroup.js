@@ -6,9 +6,12 @@ function getGroupById() {
     contentType: 'application/json'
   }).done(function (data) {
     itemgroup = data.data;
-    $(".groupName").prepend(
+    $(".groupName").prepend( 
       `<h3>${itemgroup.groupname}</h3>`
     )
+    $(".createdGroup").prepend(
+        `${itemgroup.createdGroup}`
+      )
   })
 }
 getGroupById()
