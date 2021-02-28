@@ -8,6 +8,7 @@ const usersRoute = require('./routes/users.route');
 const loginRoute = require('./routes/login.route');
 const postRoute = require('./routes/posts.route');
 const postGroup = require('./routes/group.route');
+const  postGroupById = require('./routes/group.route');
 
 
 const app = express();
@@ -27,6 +28,7 @@ app.use("/login", loginRoute);
 app.use("/post", postRoute);
 app.use("/put", postRoute);
 app.use("/group", postGroup);
+app.use("/group/_id=", postGroupById);
 
 
 app.listen(port, () => {

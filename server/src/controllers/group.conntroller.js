@@ -8,6 +8,15 @@ module.exports.getGroup = async (req, res) => {
 }
 
 
+module.exports.getGroupById = async (req, res) => {
+    const _id = req.params
+    const groupname = await Groups.findOne({ _id })
+    if (groupname) {
+      return res.json({ isSuccess: true, data: groupname })
+    }
+  
+  }
+
 module.exports.createGroup = async (req, res) => {
 
     const { groupname } = req.body;

@@ -42,7 +42,7 @@ $(document).ready(function () {
                 $('.alert').remove()
                 $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">${data.message}</div>`)
             } else {
-                window.location.replace('http://127.0.0.1:5500/client/src/components/GroupPage/user-group.html')
+                window.location.replace('http://127.0.0.1:5500/client/src/components/GroupPage/index.html')
             }
         })
 
@@ -64,8 +64,8 @@ $(document).ready(function () {
                 data.data.forEach(post => {
                     $(".group-item-name").prepend(
                         `
-                            <li>
-                                <a href="user-group.html">${post.groupname}</a>
+                            <li class="group-item" key="${post._id}">
+                                <a href="user-group.html" class="item">${post.groupname}</a>
                             </li>
                         `
                     )
@@ -74,6 +74,16 @@ $(document).ready(function () {
         })
     }
     getpost();
+
+    
+    //get id group
+    $(".group-item-name").on("click", ".group-item .item", function (event) {
+        event.preventDefault();
+        let idgroup = $(this).parents('.group-item').attr("key");
+        console.log('tên group là - ', idgroup);
+        localStorage.setItem("idGroup", idgroup)
+        window.location.replace(`http://127.0.0.1:5500/client/src/components/GroupPage/user-group.html`)
+    })
 
 
 })

@@ -5,7 +5,7 @@ const groupController = require('../controllers/group.conntroller')
 
 router.get('/', groupController.getGroup)
 router.post('/', groupController.createGroup)
-// router.put('/:_id/', groupController.createPostComment)
+router.get('/:_id/', groupController.getGroupById)
 // router.put('/reaction/:_id/', groupController.createPostReaction)
 
 

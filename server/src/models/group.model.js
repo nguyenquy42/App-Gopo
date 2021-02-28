@@ -20,7 +20,8 @@ const userSchema = new Schema({
             }
         ],
         created: { type: Date, default: Date.now }
-    }
+    },
+    created: { type: Date, default: Date.now }
 },
     {
         collection: 'Groups'

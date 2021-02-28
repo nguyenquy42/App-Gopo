@@ -62,7 +62,7 @@ $(document).ready(function () {
                 $('.alert').remove()
                 $(".container-fluid").prepend(`<div class="alert alert-danger" role="alert">Database error</div>`)
             } else {
-                // console.log(data.data)
+                console.log(data.data)
                 data.data.forEach(post => {
                     $(".content").prepend(
                         `<div class="content-main bg-7c mb-3 " key="${post._id}">` +
@@ -124,7 +124,7 @@ $(document).ready(function () {
                         `<img src="../../assets/images/default-user-avatar.png" alt="author-commet" class="rounded-circle" style="width:35px;">` +
                         `</div>` +
                         `<div class="col-9 post-main">` +
-                        `<input type="text" class="form-control gPgfXu comment-post${post._id}">` +
+                        `<input type="text" class="form-control gPgfXu comment-post${post._id}" placeholder="Bình luận của bạn">` +
                         `</div>` +
                         `<div class="col-2 p-0">` +
                         `<button class="btn btn-success btn-comment">Đăng</button>` +
@@ -214,6 +214,7 @@ $(document).ready(function () {
             return
         } else {
             console.log('có nhập văn bản');
+
         }
 
         $.ajax({
