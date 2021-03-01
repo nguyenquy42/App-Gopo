@@ -47,3 +47,35 @@ module.exports.createGroup = async (req, res) => {
         }
     });
 }
+
+
+module.exports.createPostGr = async (req, res) => {
+
+    const { type, data } = req.body;
+    const _id = req.params
+    console.log(_id);
+
+    if (type === 'post') {
+        const post = await Post.findOne({ _id })
+        post.push({
+            content: data.comment,
+            author: data.author
+
+        })
+        post.save(function (err, doc) {
+            if (err) {
+                return res.json({
+                    isSuccess: false,
+                    message: 'Database error',
+                })
+            } else {
+                return res.json({
+                    isSuccess: true,
+                    message: 'User is created',
+                    data: doc,
+                })
+            }
+        });
+    }
+    res.json({ isSuccess: true })
+}

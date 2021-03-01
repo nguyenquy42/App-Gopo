@@ -3,24 +3,26 @@ const { Schema } = mongoose;
 
 const userSchema = new Schema({
     groupname: String,
-    post: {
-        author: String,
-        content: String,
-        reaction: {
-            like: Number,
-            smile: Number,
-            love: Number,
-            angry: Number,
-            surprise: Number
-        },
-        comments: [
-            {
-              author: String,
-              content: String
-            }
-        ],
-        created: { type: Date, default: Date.now }
-    },
+    post: [
+        {
+            author: String,
+            content: String,
+            reaction: {
+                like: Number,
+                smile: Number,
+                love: Number,
+                angry: Number,
+                surprise: Number
+            },
+            comments: [
+                {
+                    author: String,
+                    content: String
+                }
+            ],
+            created: { type: Date, default: Date.now }
+        }
+    ],
     createdGroup: { type: Date, default: Date.now }
 },
     {

@@ -28,6 +28,7 @@ app.use("/login", loginRoute);
 app.use("/post", postRoute);
 app.use("/put", postRoute);
 app.use("/group", postGroup);
+app.use("/putgroup", postGroup);
 app.use("/group/_id=", postGroupById);
 
 
